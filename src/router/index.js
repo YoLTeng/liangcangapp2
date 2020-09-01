@@ -6,9 +6,10 @@ Vue.use(VueRouter)
 //定义路由组
   const routes = [
   //重定向
+  //修改/重定向到/welcome
   {
     path:"/",
-    redirect:'/shop'
+    redirect:'/welcome'
   },
   {
     path:"/home",
@@ -51,6 +52,11 @@ Vue.use(VueRouter)
     path:"*",
     component:() => import ("../views/Notfound.vue")//路由懒加载
   },
+  //游柳腾配置欢迎页面
+  {
+    path:"/welcome",
+    component:()=> import ("../views/Welcome.vue")
+  }
 ]
 
 const router = new VueRouter({
