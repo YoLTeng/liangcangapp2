@@ -16,7 +16,16 @@ import {Button,
         SubmitBar,
         Checkbox, 
         CheckboxGroup,
-        Card
+        Card,
+        Search,
+        Tab,
+        Tabs,
+        Sidebar,
+        SidebarItem,
+        Grid,
+        GridItem,
+        Swipe,
+        SwipeItem
       } from "vant";
 
 Vue.use(Button)
@@ -27,8 +36,15 @@ Vue.use(SubmitBar);
 Vue.use(Checkbox);
 Vue.use(CheckboxGroup);
 Vue.use(Card);
-
-
+Vue.use(Search);
+Vue.use(Tab);
+Vue.use(Tabs);
+Vue.use(Sidebar);
+Vue.use(SidebarItem);
+Vue.use(Grid);
+Vue.use(GridItem);
+Vue.use(Swipe);
+Vue.use(SwipeItem);
 Vue.config.productionTip = false
 
 new Vue({
