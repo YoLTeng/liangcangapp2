@@ -1,12 +1,12 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
 //引入css重置代码
-import "./assets/style/reset.css"
+import "./assets/style/reset.css";
 
 // 引入适配rem文件
-import 'amfe-flexible'
+import "amfe-flexible";
 
 //按需引入组件
 import {Button,
@@ -26,7 +26,9 @@ import {Button,
         GridItem,
         Swipe,
         SwipeItem,
-        Cell
+        Cell,
+        Icon, 
+        Lazyload
       } from "vant";
 
         Vue.use(Button)
@@ -46,10 +48,13 @@ import {Button,
         Vue.use(GridItem);
         Vue.use(Swipe);
         Vue.use(SwipeItem);
+        Vue.use(Icon);
+        Vue.use(Lazyload);
         //详情页引入
         Vue.use(Cell);
 
 Vue.config.productionTip = false
+
 
 new Vue({
     router,
