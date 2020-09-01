@@ -25,30 +25,34 @@ import {Button,
         Grid,
         GridItem,
         Swipe,
-        SwipeItem
+        SwipeItem,
+        Cell
       } from "vant";
 
-Vue.use(Button)
-Vue.use(Tabbar);
-Vue.use(TabbarItem);
-Vue.use(NavBar);
-Vue.use(SubmitBar);
-Vue.use(Checkbox);
-Vue.use(CheckboxGroup);
-Vue.use(Card);
-Vue.use(Search);
-Vue.use(Tab);
-Vue.use(Tabs);
-Vue.use(Sidebar);
-Vue.use(SidebarItem);
-Vue.use(Grid);
-Vue.use(GridItem);
-Vue.use(Swipe);
-Vue.use(SwipeItem);
+        Vue.use(Button)
+        Vue.use(Tabbar);
+        Vue.use(TabbarItem);
+        Vue.use(NavBar);
+        Vue.use(SubmitBar);
+        Vue.use(Checkbox);
+        Vue.use(CheckboxGroup);
+        Vue.use(Card);
+        Vue.use(Search);
+        Vue.use(Tab);
+        Vue.use(Tabs);
+        Vue.use(Sidebar);
+        Vue.use(SidebarItem);
+        Vue.use(Grid);
+        Vue.use(GridItem);
+        Vue.use(Swipe);
+        Vue.use(SwipeItem);
+        //详情页引入
+        Vue.use(Cell);
+
 Vue.config.productionTip = false
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app')
