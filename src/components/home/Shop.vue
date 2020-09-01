@@ -1,6 +1,6 @@
 <template>
     <div class="shop">
-     商店页
+     首页
     </div>
 </template>
 
