@@ -30,6 +30,7 @@ Vue.use(VueRouter)
       {
         path:"/magazine",
         component:() => import ("../components/home/Magazine.vue")
+
       },
       {
         path:"/cart",
@@ -45,6 +46,11 @@ Vue.use(VueRouter)
   {
     path:"/details/:id",
     component:()=> import ("../views/Details.vue")
+  },
+  //配置商品列表页的动态路由
+  {
+    path:"/shoplist/:id",
+    component:()=> import ("../views/Shoplist.vue")
   },
   // 配置错误页面
   {
