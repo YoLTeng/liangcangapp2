@@ -9,11 +9,24 @@ import "./assets/style/reset.css"
 import 'amfe-flexible'
 
 //按需引入组件
-import {Button,Tabbar, TabbarItem} from "vant";
+import {Button,
+        Tabbar,
+        TabbarItem,
+        NavBar,
+        SubmitBar,
+        Checkbox, 
+        CheckboxGroup,
+        Card
+      } from "vant";
 
 Vue.use(Button)
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
+Vue.use(NavBar);
+Vue.use(SubmitBar);
+Vue.use(Checkbox);
+Vue.use(CheckboxGroup);
+Vue.use(Card);
 
 
 Vue.config.productionTip = false
