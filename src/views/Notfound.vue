@@ -1,5 +1,13 @@
 <template>
     <div class="not">
-        404--Not Found。页面找不到啦！！！
+        <img src="../assets/img/not/not.jpg" alt="">
     </div>
 </template>
+<style lang="scss">
+    .not{
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+</style>

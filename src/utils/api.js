@@ -11,3 +11,7 @@ import http from './http'
 //     return http.post("/detail",params)
 // }
 
+// //post详情页
+// export function postDetailInfo(params) {
+//     return http.post("/details", params)
+// }
