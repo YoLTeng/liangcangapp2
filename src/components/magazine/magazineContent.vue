@@ -6,7 +6,7 @@
         <span class="left-month" v-show="!ifshow">JUL.27</span>
       </div>
       <div class="nav-bar-title">
-        <p :class="{'after-style':ifshow}">杂志</p>
+        <p :class="{ 'after-style': ifshow }">杂志</p>
       </div>
       <div class="nav-bar-right" @click="moveMagazine">
         <van-icon name="wap-nav" size="14" color="#000" />
