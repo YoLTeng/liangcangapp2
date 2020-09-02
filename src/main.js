@@ -12,49 +12,50 @@ import "../src/assets/font/font_public/iconfont.css"
 import "amfe-flexible";
 
 //按需引入组件
-import {Button,
-        Tabbar,
-        TabbarItem,
-        NavBar,
-        SubmitBar,
-        Checkbox, 
-        CheckboxGroup,
-        Card,
-        Search,
-        Tab,
-        Tabs,
-        Sidebar,
-        SidebarItem,
-        Grid,
-        GridItem,
-        Swipe,
-        SwipeItem,
-        Cell,
-        Icon, 
-        Lazyload
-      } from "vant";
+import {
+    Button,
+    Tabbar,
+    TabbarItem,
+    NavBar,
+    SubmitBar,
+    Checkbox,
+    CheckboxGroup,
+    Card,
+    Search,
+    Tab,
+    Tabs,
+    Sidebar,
+    SidebarItem,
+    Grid,
+    GridItem,
+    Swipe,
+    SwipeItem,
+    Cell,
+    Icon,
+    Lazyload
+} from "vant";
 
-        Vue.use(Button)
-        Vue.use(Tabbar);
-        Vue.use(TabbarItem);
-        Vue.use(NavBar);
-        Vue.use(SubmitBar);
-        Vue.use(Checkbox);
-        Vue.use(CheckboxGroup);
-        Vue.use(Card);
-        Vue.use(Search);
-        Vue.use(Tab);
-        Vue.use(Tabs);
-        Vue.use(Sidebar);
-        Vue.use(SidebarItem);
-        Vue.use(Grid);
-        Vue.use(GridItem);
-        Vue.use(Swipe);
-        Vue.use(SwipeItem);
-        Vue.use(Icon);
-        Vue.use(Lazyload);
-        //详情页引入
-        Vue.use(Cell);
+Vue.use(Button)
+Vue.use(Tabbar);
+Vue.use(TabbarItem);
+Vue.use(NavBar);
+Vue.use(SubmitBar);
+Vue.use(Checkbox);
+Vue.use(CheckboxGroup);
+Vue.use(Card);
+Vue.use(Search);
+Vue.use(Tab);
+Vue.use(Tabs);
+Vue.use(Sidebar);
+Vue.use(SidebarItem);
+Vue.use(Grid);
+Vue.use(GridItem);
+Vue.use(Swipe);
+Vue.use(SwipeItem);
+Vue.use(Icon);
+Vue.use(Lazyload);
+//详情页引入
+Vue.use(Cell);
 
 
 Vue.config.productionTip = false
