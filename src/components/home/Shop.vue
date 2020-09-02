@@ -86,7 +86,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import '../../assets/style/shop.scss';
+@import '../../assets/style/shop.css';
   .van-search__content {
     background: #F9F9F9;
   }
@@ -105,5 +105,43 @@ export default {
 .van-swipe__indicator {
     width: 0.3rem;
     height: 0.06rem;
+}
+.img {
+  width: 7.6rem;
+  height: 204px;
+  /* margin-left: 30px; */
+  border-radius: 10px;
+}
+.img1 {
+  width: 166px;
+  height: 215px;
+}
+.img2 {
+  width: 166px;
+  height: 166px;
+}
+.img3 {
+  width: 166px;
+  height: 166px;
+}
+.img4 {
+  width: 166px;
+  height: 215px;
+}
+.good {
+  img {
+    margin-bottom: 10px;
+  }
+  padding: 18px;
+  display: flex;
+  justify-content: space-between;
+  .left {
+    display: flex;
+    flex-direction: column;
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>
