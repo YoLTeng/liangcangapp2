@@ -6,9 +6,10 @@ Vue.use(VueRouter)
 //定义路由组
   const routes = [
   //重定向
+  //修改/重定向到/welcome
   {
     path:"/",
-    redirect:'/shop'
+    redirect:'/welcome'
   },
   {
     path:"/home",
@@ -30,6 +31,7 @@ Vue.use(VueRouter)
       {
         path:"/magazine",
         component:() => import ("../components/home/Magazine.vue")
+
       },
       {
         path:"/cart",
@@ -46,11 +48,21 @@ Vue.use(VueRouter)
     path:"/details/:id",
     component:()=> import ("../views/Details.vue")
   },
+  //配置商品列表页的动态路由
+  {
+    path:"/shoplist/:id",
+    component:()=> import ("../views/Shoplist.vue")
+  },
   // 配置错误页面
   {
     path:"*",
     component:() => import ("../views/Notfound.vue")//路由懒加载
   },
+  //游柳腾配置欢迎页面
+  {
+    path:"/welcome",
+    component:()=> import ("../views/Welcome.vue")
+  }
 ]
 
 const router = new VueRouter({
