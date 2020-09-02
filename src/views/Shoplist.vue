@@ -20,12 +20,30 @@
         {{ item.title }}
       </li>
     </ul>
-
-    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-      <van-swipe-item>1</van-swipe-item>
-      <van-swipe-item>2</van-swipe-item>
-      <van-swipe-item>3</van-swipe-item>
-      <van-swipe-item>4</van-swipe-item>
+    <!-- 商品内容 -->
+    <van-swipe
+      class="my-swipe"
+      :loop="false"
+      :show-indicators="false"
+      ref="changebanner"
+      @change="onChange"
+    >
+      <van-swipe-item v-for="item in 6" :key="item">
+        <div class="list-wrap" >
+          <ul>
+            <li v-for="item in 10" :key="item">
+              <img src="../assets/findimg/img4.png" alt="" />
+              <div class="shop-info">
+                <p class="title">全身按摩床垫升级款</p>
+                <p class="effect">升级颈椎揉捏加大热敷面积</p>
+                <p class="sketch">颈部正反按摩 要被大面积热敷 海燕包赠送</p>
+                <p class="price">￥999</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </van-swipe-item>
+     
     </van-swipe>
   </div>
 </template>
@@ -37,7 +55,7 @@ export default {
       //顶部title数据
       sidebarList: [
         {
-          title: "家居",
+          title: "家具",
           id: "1",
         },
         {
@@ -60,15 +78,16 @@ export default {
           title: "美食",
           id: "6",
         },
-        {
-          title: "服装",
-          id: "7",
-        },
-        {
-          title: "鞋包",
-          id: "8",
-        },
+        // {
+        //   title: "服装",
+        //   id: "7",
+        // },
+        // {
+        //   title: "鞋包",
+        //   id: "8",
+        // },
       ],
+      isActive: 0,
     };
   },
 
@@ -85,18 +104,99 @@ export default {
     },
     //点击切换商品列表
     tabClick(i) {
-      this.isActive = i;
+      // this.isActive = i;
       this.$refs.changebanner.swipeTo(i);
     },
+    onChange(i){
+      this.isActive = i;
+    }
   },
 };
 </script>
 <style lang="scss" scoped>
-.my-swipe .van-swipe-item {
-  color: #fff;
-  font-size: 20px;
-  line-height: 150px;
-  text-align: center;
-  background-color: #39a9ed;
+.shoplist {
+  // 发现页tab切换
+  .tabswitch {
+    background: white;
+    z-index: 2;
+    position: fixed;
+    top: 44px;
+    left: 0;
+    display: flex;
+    width: 375px;
+    height: 46px;
+    border-bottom: 1px solid #e1e1e1;
+    li {
+      font-size: 15px;
+      color: #999999;
+      font-weight: PingFang-SC-Medium;
+      height: 43px;
+      line-height: 46px;
+      margin: 0 16px 0 16px;
+    }
+    .active {
+      color: #171717;
+      border-bottom: 3px solid;
+    }
+  }
+
+  //商品列表
+  .van-swipe {
+    margin-top: 46px;
+    .van-swipe-item {
+      .list-wrap {
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          padding: 14px 17px 0 17px;
+          li {
+            height: 300px;
+            width: 166px;
+            background: #f0f0f0;
+            margin-bottom: 7px;
+            img {
+              width: 166px;
+              height: 165px;
+            }
+            .shop-info {
+              width: 100%;
+              height: 134px;
+              display: flex;
+              flex-direction: column;
+              font-size: 11px;
+              padding-left: 6px;
+              .title {
+                font-size: 13px;
+                color: #1e1e1e;
+                height: 20px;
+                line-height: 34px;
+              }
+              .effect {
+                height: 23px;
+                line-height: 28px;
+                color: #1e1e1e;
+                font-weight: 400;
+                margin-bottom: 5px;
+              }
+              .sketch {
+                height: 34px;
+                font-weight: 400;
+                color: #939393;
+                line-height: 17px;
+              }
+              .price {
+                margin-top: 8px;
+                font-size: 15px;
+                font-family: PingFang SC;
+                font-weight: 600;
+                color: #7292bc;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 </style>
