@@ -4,3 +4,7 @@
   border-radius:0;
   background: #aaa;
 }
+.van-tab--active {
+  font-size: 18px;
+  font-weight: 900;
+}
