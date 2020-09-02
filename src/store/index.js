@@ -9,6 +9,22 @@ import Vuex from "vuex";
 
 Vue.use(Vuex)
 
+const magazine = {
+    namespaced: true, //添加命名空间，不同模块相同变量名不冲突
+    state: {
+        moveMagazine: false,
+        index: 0,
+    },
+    mutations: {
+        ifmove(state) {
+            state.moveMagazine = !state.moveMagazine;
+        },
+        isactive(state, n) {
+            state.index = n;
+        }
+    }
+}
+
 export default new Vuex.Store({
     state: {
         //state例子
@@ -17,7 +33,7 @@ export default new Vuex.Store({
 
         // //详情页数据
         // detailInfo: {},
-        moveMagazine: false,
+
     },
     mutations: {
         //mutation例子
@@ -29,9 +45,7 @@ export default new Vuex.Store({
         // changeDetailInfo(state, payload) {
         //     state.detailInfo = payload.info
         // }
-        ifmove(state) {
-            state.moveMagazine = !state.moveMagazine;
-        },
+
     },
     actions: {
         // 请求接口例子
@@ -57,5 +71,7 @@ export default new Vuex.Store({
         //     })
         // },
     },
-    modules: {}
+    modules: {
+        magazine: magazine,
+    }
 })

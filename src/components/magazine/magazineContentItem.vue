@@ -5,9 +5,7 @@
     :style="{ background: 'url(' + img1 + ')' }"
     v-lazy:background-image="img1"
   >
-    <p class="magazine-title">
-      跟着大热美剧麦瑟尔夫人，去发现50年代去发现50年代去发现50年代
-    </p>
+    <p class="magazine-title">跟着大热美剧麦瑟尔夫人，去发现50年代去发现50年代去发现50年代</p>
 
     <p class="magazine-type">—时尚—</p>
 
@@ -16,7 +14,7 @@
 </template>
 
 <script>
-import img1 from "../../assets/img/1546491175586831.png";
+import img1 from "../../assets/img/magazineImgs/1546491175586831.png";
 export default {
   data() {
     return {
@@ -32,6 +30,11 @@ export default {
   margin-bottom: 40px;
   &:nth-last-child(1) {
     margin-bottom: 0;
+  }
+  &:nth-child(1) {
+    .magazine-time {
+      display: none;
+    }
   }
   display: flex;
   flex-direction: column;
