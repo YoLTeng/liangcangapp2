@@ -54,6 +54,7 @@ import {Button,
         //详情页引入
         Vue.use(Cell);
 
+
 Vue.config.productionTip = false
 
 

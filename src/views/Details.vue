@@ -88,12 +88,7 @@
                     <span>做工精致</span>
                 </div>               
             </div>
-           
-
-            
-            
-        </main>
-      
+        </main>    
     </div>
 </template>
 <script>
@@ -331,11 +326,6 @@ import { Toast } from 'vant';
             }
         }
     }
-    
-
-
-    
-
 }
     
 </style>
