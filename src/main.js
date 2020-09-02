@@ -16,7 +16,9 @@ import {
     Swipe,
     SwipeItem,
     NavBar,
-    Cell
+    Cell,
+    Tab,
+    Tabs
 
 } from "vant";
 
@@ -28,6 +30,8 @@ Vue.use(Swipe);
 Vue.use(SwipeItem);
 Vue.use(NavBar);
 Vue.use(Cell);
+Vue.use(Tab);
+Vue.use(Tabs);
 
 Vue.config.productionTip = false
 

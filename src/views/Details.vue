@@ -88,11 +88,13 @@
                     <span>做工精致</span>
                 </div>               
             </div>
-           
-
-            
-            
         </main>
+         <div class="tab">
+                <van-tabs type="card">
+                    <van-tab title="商品详情">内容 1</van-tab>
+                    <van-tab title="购物须知">内容 2</van-tab>
+                </van-tabs>
+        </div>
       
     </div>
 </template>
@@ -327,6 +329,38 @@ import { Toast } from 'vant';
                     color: #383838;
                     border: 1px dashed #383838;
                     margin-right:10px ;
+                }
+            }
+        }
+    }
+    // tab切换
+    .tab{
+        width: 351px;
+        margin-top: 20px;
+        .van-tabs{
+            width: 351px;
+                margin-bottom: 5px;
+
+            .van-tabs__nav--card{
+                width: 349px;
+                height: 37px;
+                line-height: 37px;
+                border: 1px solid #333;
+                .van-tab{
+                    margin-left: -5px;
+                    width: 166px;
+                    .van-tab__text{
+                        height: 35px;
+                        line-height: 35px;
+                        font-size: 16px;
+                        color: #333;
+                    }
+                } 
+                .van-tab--active{
+                    background: #333;
+                    .van-tab__text{
+                    color: #fff;
+                    }
                 }
             }
         }
