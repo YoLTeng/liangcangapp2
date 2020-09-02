@@ -21,9 +21,22 @@
       </li>
     </ul>
 
-    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-      <van-swipe-item>1</van-swipe-item>
-      <van-swipe-item>2</van-swipe-item>
+    <van-swipe
+      class="my-swipe"
+      :loop="false"
+      :show-indicators="false"
+      ref="changebanner"
+    >
+      <van-swipe-item>
+        <div class="list-wrap">
+          <ul>
+            <li v-for="item in 10" :key="item">
+              {{ item }}
+            </li>
+          </ul>
+        </div>
+      </van-swipe-item>
+      <van-swipe-item>2asdasd</van-swipe-item>
       <van-swipe-item>3</van-swipe-item>
       <van-swipe-item>4</van-swipe-item>
     </van-swipe>
@@ -37,7 +50,7 @@ export default {
       //顶部title数据
       sidebarList: [
         {
-          title: "家居",
+          title: "家具",
           id: "1",
         },
         {
@@ -52,23 +65,24 @@ export default {
           title: "玩乐",
           id: "4",
         },
-        {
-          title: "餐厨",
-          id: "5",
-        },
-        {
-          title: "美食",
-          id: "6",
-        },
-        {
-          title: "服装",
-          id: "7",
-        },
-        {
-          title: "鞋包",
-          id: "8",
-        },
+        // {
+        //   title: "餐厨",
+        //   id: "5",
+        // },
+        // {
+        //   title: "美食",
+        //   id: "6",
+        // },
+        // {
+        //   title: "服装",
+        //   id: "7",
+        // },
+        // {
+        //   title: "鞋包",
+        //   id: "8",
+        // },
       ],
+      isActive: 0,
     };
   },
 
@@ -92,11 +106,35 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.my-swipe .van-swipe-item {
-  color: #fff;
-  font-size: 20px;
-  line-height: 150px;
-  text-align: center;
-  background-color: #39a9ed;
+.shoplist {
+  // 发现页tab切换
+  .tabswitch {
+    background: white;
+    z-index: 2;
+    position: fixed;
+    top: 44px;
+    left: 0;
+    display: flex;
+    width: 375px;
+    height: 46px;
+    border-bottom: 1px solid #e1e1e1;
+    li {
+      font-size: 15px;
+      color: #999999;
+      font-weight: PingFang-SC-Medium;
+      height: 43px;
+      line-height: 46px;
+      margin: 0 16px 0 16px;
+    }
+    .active {
+      color: #ff9180;
+      border-bottom: 3px solid;
+    }
+  }
+  .my-swipe .van-swipe-item {
+    font-size: 20px;
+    line-height: 150px;
+    text-align: center;
+  }
 }
 </style>
