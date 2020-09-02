@@ -87,8 +87,60 @@
                     <span>实物太美</span>
                     <span>做工精致</span>
                 </div>               
-            </div>
-        </main>    
+            </div>      
+        </main> 
+         <!-- 商品详情  购物须知-->
+            <div class="details-notice">
+                <van-tabs 
+                type="card"
+                color= "#333"
+                title-active-color="#fff"	
+             
+                >
+                    <van-tab 
+                    title="商品详情" 
+                    title-style='font-size:16px;width:174px;height:35px;margin-left:-5px;'
+                    >
+                        <img src="../assets/img-details/故宫联名古法琉璃茶器套装  纯手工打造 藏品级器皿.良仓－生活美学指南.png" alt="">
+                        <img src="../assets/img-details/图层 2.png" alt="">
+                        <img src="../assets/img-details/图层 3.png" alt="">
+                        <img src="../assets/img-details/图层 4.png" alt="">
+                        <img src="../assets/img-details/图层 5.png" alt="">
+                        <img src="../assets/img-details/图层 6.png" alt="">
+                        <img src="../assets/img-details/图层 7.png" alt="">
+                        <img src="../assets/img-details/图层 8.png" alt="">
+                        <img src="../assets/img-details/图层 9.png" alt="">
+                        <img src="../assets/img-details/图层 10.png" alt="">
+                        <img src="../assets/img-details/图层 11.png" alt="">
+                        <img src="../assets/img-details/图层 12.png" alt="">
+                        <img src="../assets/img-details/图层 13.png" alt="">
+                        <img src="../assets/img-details/图层 14.png" alt="">
+                        <img src="../assets/img-details/图层 15.png" alt="">
+                        <img src="../assets/img-details/图层 16.png" alt="">
+                        <img src="../assets/img-details/图层 17.png" alt="">
+                        <img src="../assets/img-details/图层 18.png" alt="">
+                        <img src="../assets/img-details/图层 19.png" alt="">
+                        <img src="../assets/img-details/图层 20.png" alt="">
+                        <img src="../assets/img-details/图层 21.png" alt="">
+                    </van-tab>
+                    <van-tab 
+                    class="notice-words"
+                    title="购物须知"
+                    title-style='font-size:16px;width:174px;height:35px;margin-left:-5px;'
+                    >
+                        <p>所有商品均为正品保证。</p>
+                        <br>
+		                <p>中国大陆地区免运费，默认商家合作快递。</p>
+                        <br>
+		                <p>蜡烛、液态品、手表等含电池产品无法空运，运输时间相较普通空运件会更久。</p>
+                        <br>
+		                <p>如出现产品质量问题请在签收后72小时内联系客服。</p>
+                        <!-- <router-link to="/notice"></router-link> -->
+                        <button @click="showNotice">售后须知</button>
+                        <br>
+                    </van-tab>                  
+                </van-tabs>
+            </div>   
     </div>
 </template>
 <script>
@@ -99,6 +151,9 @@ import { Toast } from 'vant';
                 id:'',
                 current: 0
             }
+        },
+        mounted() {
+            
         },
         methods: {
             swipeChange(index) {
@@ -119,6 +174,9 @@ import { Toast } from 'vant';
                 this.$refs.aixin.style.display='block';
                 this.$refs.aixin1.style.display='none'
             },
+            showNotice(){
+                this.$router.push('/notice')
+            }
         },
     }
 </script>
@@ -327,37 +385,42 @@ import { Toast } from 'vant';
         }
     }
     // tab切换
-    .tab{
-        width: 351px;
-        margin-top: 20px;
-        .van-tabs{
-            width: 351px;
-                margin-bottom: 5px;
-
-            .van-tabs__nav--card{
-                width: 349px;
-                height: 37px;
-                line-height: 37px;
-                border: 1px solid #333;
-                .van-tab{
-                    margin-left: -5px;
-                    width: 166px;
-                    .van-tab__text{
-                        height: 35px;
-                        line-height: 35px;
-                        font-size: 16px;
-                        color: #333;
-                    }
-                } 
-                .van-tab--active{
+   .details-notice{
+       width: 351px;
+       margin-top: 20px;
+      
+       .van-tabs{
+           width: 351px;
+           height: 37px!important;//????
+            .van-tabs_wrap{
+                height: 37px;           
+            }
+           
+            .van-tabs__content{
+                width: 351px;
+                margin-top: 20px;
+                margin-left: 15px;
+                img{
+                    width: 351px;
+                }
+               
+            }
+            .notice-words{
+                width: 350px;
+                height: 500px;
+                 p{
+                    font-size:16px;
+                }
+                button{
+                    width: 80px;
+                    height: 25px;
+                    font-size:16px;
                     background: #333;
-                    .van-tab__text{
                     color: #fff;
-                    }
                 }
             }
-        }
-    }
+       }
+   }
     
 
 
