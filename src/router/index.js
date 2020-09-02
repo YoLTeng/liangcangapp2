@@ -67,17 +67,17 @@ const routes = [
         component: () =>
             import ("../views/DetailsNotice.vue")
     },
+    //游柳腾配置欢迎页面
+    {
+            path: "/welcome",
+            component: () =>
+                import ("../views/Welcome.vue")
+    },
     // 配置错误页面
     {
         path: "*",
         component: () =>
             import ("../views/Notfound.vue") //路由懒加载
-    },
-    //游柳腾配置欢迎页面
-    {
-        path: "/welcome",
-        component: () =>
-            import ("../views/Welcome.vue")
     },
 ]
 
