@@ -1,5 +1,5 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from "vue";
+import Vuex from "vuex";
 
 //  解构赋值引入api.js里的方法
 //例子 import {} from "../utils/api";
@@ -17,6 +17,7 @@ export default new Vuex.Store({
 
         // //详情页数据
         // detailInfo: {},
+        moveMagazine: false,
     },
     mutations: {
         //mutation例子
@@ -28,6 +29,9 @@ export default new Vuex.Store({
         // changeDetailInfo(state, payload) {
         //     state.detailInfo = payload.info
         // }
+        ifmove(state) {
+            state.moveMagazine = !state.moveMagazine;
+        },
     },
     actions: {
         // 请求接口例子

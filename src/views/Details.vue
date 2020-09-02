@@ -88,14 +88,7 @@
                     <span>做工精致</span>
                 </div>               
             </div>
-        </main>
-         <div class="tab">
-                <van-tabs type="card">
-                    <van-tab title="商品详情">内容 1</van-tab>
-                    <van-tab title="购物须知">内容 2</van-tab>
-                </van-tabs>
-        </div>
-      
+        </main>    
     </div>
 </template>
 <script>
