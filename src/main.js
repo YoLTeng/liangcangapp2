@@ -4,6 +4,8 @@ import router from "./router";
 import store from "./store";
 //引入css重置代码
 import "./assets/style/reset.css";
+//引入html,body100%代码
+import "../src/assets/style/htmlBody.scss"
 //引入公共icon文件
 import "../src/assets/font/font_public/iconfont.css"
 // 引入适配rem文件
