@@ -2,8 +2,16 @@
   <div class="home">
     <router-view></router-view>
     <!-- 底部按钮 -->
-    <van-tabbar v-model="active" placeholder active-color="#FF7F2A" inactive-color="#000" route z-index="10">
-     <van-tabbar-item
+    <van-tabbar
+      v-model="active"
+      placeholder
+      active-color="#FF7F2A"
+      inactive-color="#000"
+      route
+      z-index="10"
+      v-show="!ifshow"
+    >
+      <van-tabbar-item
         v-for="(value,index) in btns"
         :key="index"
         :icon="value.icon"
@@ -22,30 +30,35 @@ export default {
         {
           icon: "home-o",
           text: "商店",
-          to: "/shop"
+          to: "/shop",
         },
         {
           icon: "search",
           text: "发现",
-          to: "/find"
+          to: "/find",
         },
         {
           icon: "friends-o",
           text: " 杂志",
-          to: "/magazine"
+          to: "/magazine",
         },
-         {
+        {
           icon: "friends-o",
           text: "购物车",
-          to: "/cart"
+          to: "/cart",
         },
         {
           icon: "setting-o",
           text: "个人",
-          to: "/mine"
-        }
-      ]
+          to: "/mine",
+        },
+      ],
     };
-  }
-}
+  },
+  computed: {
+    ifshow() {
+      return this.$store.state.magazine.moveMagazine;
+    },
+  },
+};
 </script>

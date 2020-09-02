@@ -1,6 +1,6 @@
 <template>
   <div class="magazine-wrap">
-    <div class="magazine" @click="aa" :class="{ move: magmove }">
+    <div class="magazine" :class="{ move: magmove }">
       <magazineHeader />
       <magazineContent />
     </div>
@@ -25,17 +25,20 @@ export default {
   },
   computed: {
     magmove() {
-      return this.$store.state.moveMagazine;
+      return this.$store.state.magazine.moveMagazine;
     },
   },
   mounted() {
     //在这里调用actions里的函数
     //例子:this.$store.dispatch("getBannerinfo")
+    if (this.$store.state.magazine.moveMagazine) {
+      this.$store.commit("magazine/ifmove");
+    }
   },
   methods: {
-    aa() {
-      console.log(this.$store.state.moveMagazine);
-    },
+    // aa() {
+    //   console.log(this.$store.state.magazine.moveMagazine);
+    // },
   },
 };
 </script>
@@ -47,15 +50,16 @@ export default {
   left: 0;
   bottom: 0;
   right: 0;
+  overflow: hidden;
   .magazine {
     width: 100%;
     position: absolute;
     transition: 1s;
-    top: 0;
+    top: calc(-100vh + 39px);
   }
   .move {
     transition: 1s;
-    top: calc(-100vh + 100px);
+    top: 0;
   }
 }
 </style>

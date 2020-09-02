@@ -3,13 +3,13 @@
   <div class="magazine-container">
     <div class="van-nav-bar">
       <div class="nav-bar-left">
-        <span class="left-month">JUL.27</span>
+        <span class="left-month" v-show="!ifshow">JUL.27</span>
       </div>
       <div class="nav-bar-title">
-        <p>杂志</p>
+        <p :class="{'after-style':ifshow}">杂志</p>
       </div>
       <div class="nav-bar-right" @click="moveMagazine">
-        <van-icon name="wap-nav" size="14" />
+        <van-icon name="wap-nav" size="14" color="#000" />
       </div>
     </div>
     <main>
@@ -32,8 +32,13 @@ export default {
   components: {
     magazineContentItem,
   },
+  computed: {
+    ifshow() {
+      return this.$store.state.magazine.moveMagazine;
+    },
+  },
   mounted() {
-    let bScroll = new BScroll("main", {
+    let bScroll = new BScroll(".magazine-container main", {
       // 滚动部分允许点击
       click: true,
       // 允许上拉加载
@@ -42,7 +47,7 @@ export default {
   },
   methods: {
     moveMagazine() {
-      this.$store.commit("ifmove");
+      this.$store.commit("magazine/ifmove");
     },
   },
 };
@@ -68,6 +73,11 @@ export default {
     }
     .nav-bar-title {
       font-size: 14px;
+      position: absolute;
+      top: 55%;
+      left: 45%;
+      transform: translateX(-50%);
+      transform: translateY(-50%);
       p {
         position: relative;
         &::after {
@@ -79,7 +89,21 @@ export default {
           border-color: #000 transparent transparent;
           position: absolute;
           right: -12px;
-          top: 6px;
+          top: 10px;
+        }
+      }
+      .after-style {
+        position: relative;
+        &::after {
+          content: "";
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 5px 3px 5px;
+          border-color: transparent transparent #000;
+          position: absolute;
+          right: -12px;
+          top: 3px;
         }
       }
     }
@@ -92,7 +116,7 @@ export default {
   }
   main {
     position: absolute;
-    top: 29px;
+    top: 39px;
     left: 0px;
     right: 0px;
     bottom: 50px;
