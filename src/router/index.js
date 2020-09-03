@@ -67,6 +67,25 @@ const routes = [
         component: () =>
             import ("../views/DetailsNotice.vue")
     },
+    //配置地址页路由
+    {
+        path: "/side",
+        component:()=>
+        import ("../components/mine/Site.vue")
+    },
+    //配置新增地址页的路由
+    {
+        path:"/addside",
+        component:()=>
+        import("../components/mine/Addsite.vue")
+    },
+    //配置编辑地址页的路由
+    {
+        path:"/editass/:ass",
+        component:()=>
+        import("../components/mine/Editaddress.vue")  
+    }
+    ,
     //游柳腾配置欢迎页面
     {
             path: "/welcome",
