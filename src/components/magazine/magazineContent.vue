@@ -9,12 +9,12 @@
         <p :class="{ 'after-style': ifshow }">杂志</p>
       </div>
       <div class="nav-bar-right" @click="moveMagazine">
-        <van-icon name="wap-nav" size="14" color="#000" />
+        <van-icon name="wap-nav" color="#000" />
       </div>
     </div>
     <main>
       <div>
-        <magazineContentItem v-for="item in 9" :key="item" />
+        <magazineContentItem v-for="item in 9" :key="item" ref="scroll" />
       </div>
     </main>
   </div>
@@ -27,7 +27,9 @@ import BScroll from "better-scroll";
 
 export default {
   data() {
-    return {};
+    return {
+      index: 0,
+    };
   },
   components: {
     magazineContentItem,
@@ -38,16 +40,26 @@ export default {
     },
   },
   mounted() {
-    let bScroll = new BScroll(".magazine-container main", {
-      // 滚动部分允许点击
-      click: true,
-      // 允许上拉加载
-      pullUpLoad: true,
+    this.$nextTick(() => {
+      let bScroll = new BScroll(".magazine-container main", {
+        // 滚动部分允许点击
+        click: true,
+        // 允许上拉加载
+        pullUpLoad: true,
+      });
+      bScroll.on("scroll", (a) => {
+        this.index = a;
+        console.log(parseInt((a.y + 20) / 250));
+        // console.log(a.y);
+      });
     });
   },
   methods: {
     moveMagazine() {
       this.$store.commit("magazine/ifmove");
+    },
+    scrolltop() {
+      console.log(111);
     },
   },
 };
@@ -111,6 +123,7 @@ export default {
       font-size: 12px;
       .van-icon {
         position: static;
+        font-size: 14px;
       }
     }
   }
