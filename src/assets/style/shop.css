@@ -1,0 +1,10 @@
+.van-swipe__indicator {
+  width: 16px;
+  height: 3px;
+  border-radius:0;
+  background: #aaa;
+}
+.van-tab--active {
+  font-size: 18px;
+  font-weight: 900;
+}

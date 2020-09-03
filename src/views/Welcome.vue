@@ -23,7 +23,7 @@ export default {
             this.timer--
         }, 1000);
         setTimeout(() => {
-        this.$router.push("./home"),
+        this.$router.push("/home"),
         this.stetimer=null
         }, 3000);
     },
