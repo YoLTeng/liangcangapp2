@@ -107,7 +107,6 @@ export default {
 <style lang="scss" scoped>
 .mini {
   width: 375px;
-  height: 811px;
 }
 .top {
   width: 100%;
