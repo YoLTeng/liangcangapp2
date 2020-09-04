@@ -5,7 +5,9 @@
     :style="{ background: 'url(' + img1 + ')' }"
     v-lazy:background-image="img1"
   >
-    <p class="magazine-title">跟着大热美剧麦瑟尔夫人，去发现50年代去发现50年代去发现50年代</p>
+    <p class="magazine-title">
+      跟着大热美剧麦瑟尔夫人，去发现50年代去发现50年代去发现50年代
+    </p>
 
     <p class="magazine-type">—时尚—</p>
 
