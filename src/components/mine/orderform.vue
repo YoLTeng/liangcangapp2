@@ -1,7 +1,7 @@
 <template>
-  <div class="set">
+  <div class="orderform">
     <div class="orderform-top">
-      <van-nav-bar title="账户设置" right-text="更多设置" left-arrow />
+      <van-nav-bar title="我的订单" right-text="客服" left-arrow />
     </div>
     <div>
       <van-tabs v-model="active">
@@ -43,6 +43,8 @@ export default {
 <style lang="scss" scoped>
 .orderform {
   width: 375px;
-
+  height: 811px;
+  background: pink;
+  position: relative;
 }
 </style>
