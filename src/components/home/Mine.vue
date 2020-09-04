@@ -110,20 +110,20 @@ export default {
 }
 .top {
   width: 100%;
-  height: 311px;
+  height: 262px;
   display: flex;
   flex-direction: column;
   background: pink;
 }
 .top .top-box1 {
   width: 100%;
-  height: 68px;
+  height: 19px;
   position: relative;
 }
 .top .top-box1 .top-box1-font {
   position: absolute;
   left: 154px;
-  top: 52px;
+  top: 13px;
 }
 .top .top-box1 .top-box1-font p {
   font-size: 16px;
@@ -132,7 +132,7 @@ export default {
 .top .top-box1 .top-box1-btn {
   position: absolute;
   left: 339px;
-  top: 52px;
+  top: 13px;
 }
 .top .top-box1 .top-box1-btn button {
   border: none;
@@ -193,7 +193,7 @@ export default {
   top: 24px;
 }
 .foot {
-  width: 100px;
+  width: 100%;
   position: relative;
 }
 .foot .foot-box1 {
