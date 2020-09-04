@@ -3,7 +3,7 @@
     <van-search placeholder="搜索商品、品牌" input-align="center" />
     <van-tabs color="black" line-width="20px" title-active-font-size="64px">
       <van-tab v-for="(item, index) in tab" :title="item.name" :key="index">
-        <van-swipe :width="300" indicator-width="16px">
+        <van-swipe :width="300" indicator-width="16px" autoplay="3000">
           <van-swipe-item>
             <img class="img" src="../../assets/img/良仓.生活美学平台.jpg" alt />
           </van-swipe-item>
