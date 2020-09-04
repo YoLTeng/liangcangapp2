@@ -11,6 +11,7 @@ import "../src/assets/font/font_public/iconfont.css"
 // 引入适配rem文件
 import "amfe-flexible";
 
+
 //按需引入组件
 import {
     Button,
@@ -32,7 +33,11 @@ import {
     SwipeItem,
     Cell,
     Icon,
-    Lazyload
+    Lazyload,
+    Area,
+    Form,
+    Field,
+    Popup 
 } from "vant";
 
 Vue.use(Button)
@@ -54,6 +59,10 @@ Vue.use(Swipe);
 Vue.use(SwipeItem);
 Vue.use(Icon);
 Vue.use(Lazyload);
+Vue.use(Area);
+Vue.use(Form);
+Vue.use(Field);
+Vue.use(Popup);
 //详情页引入
 Vue.use(Cell);
 
