@@ -32,7 +32,14 @@ import {
     SwipeItem,
     Cell,
     Icon,
-    Lazyload
+    Lazyload,
+    Popup,
+    GoodsAction,
+    GoodsActionButton,
+    GoodsActionIcon,
+    Stepper,
+    ShareSheet,
+    Rate,
 } from "vant";
 
 Vue.use(Button)
@@ -54,8 +61,14 @@ Vue.use(Swipe);
 Vue.use(SwipeItem);
 Vue.use(Icon);
 Vue.use(Lazyload);
-//详情页引入
 Vue.use(Cell);
+Vue.use(Popup);
+Vue.use(GoodsAction);
+Vue.use(GoodsActionButton);
+Vue.use(GoodsActionIcon);
+Vue.use(Stepper);
+Vue.use(ShareSheet);
+Vue.use(Rate);
 
 
 Vue.config.productionTip = false

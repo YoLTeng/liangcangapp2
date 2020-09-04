@@ -1,11 +1,16 @@
 <template>
-    <div>
+    <div class="detailsNotice-wrap">
+        <van-nav-bar
+        title="售后须知"
+        left-arrow
+        @click-left="onClickLeft"
+        />
          <div>
-            <div style="font-weight:bold;">温馨提示：</div>
-            <div style="padding-left: 2em;">如您订购的是生鲜冷冻商品，建议您收货时开箱检验。如发现变质或破损、漏发错发等情况，请于签收后48小时内对商品及包装外箱拍照并发给在线客服，我们将尽速进行处理。</div>
+            <div class="nt-tips">温馨提示：</div>
+            <div class="nt-tips-content">如您订购的是生鲜冷冻商品，建议您收货时开箱检验。如发现变质或破损、漏发错发等情况，请于签收后48小时内对商品及包装外箱拍照并发给在线客服，我们将尽速进行处理。</div>
          </div>                               
-         <div style="margin-top:1em;">
-            <div style="font-weight:bold;">关于售后：</div>
+         <div class="nt-sellserive">
+            <div class="nt-about" style="font-weight:bold;">关于售后：</div>
             <div style="padding-left: 2em;text-indent: -2em;">一、如出现以下情况，请及时联系客服团队并提供订单编号或收件人手机号，我们将竭诚为您服务：
                  <br />1.&nbsp;&nbsp;错发、漏发
                  <br />2.&nbsp;&nbsp;商品自身质量问题
@@ -29,3 +34,39 @@
     </div>
    
 </template>
+<script>
+export default {
+    methods:{
+         onClickLeft(){
+                this.$router.go(-1)
+            },
+    }
+}
+</script>
+<style lang="scss">
+    .detailsNotice-wrap{
+        font-size: 12px;
+        line-height: 20px;
+        padding: 15px;
+        .van-nav-bar__left{
+            padding: 0;
+        }
+         .van-nav-bar .van-icon {
+                color: #333;
+            }
+        .nt-tips{
+            font-weight:bold;
+            margin-bottom:5px;
+        }
+        .nt-tips-content{
+            padding-left: 20px;
+        }
+        .nt-sellserive{
+            margin-top:20px;
+            .nt-about{
+                margin-bottom: 5px;
+            }
+        }
+
+    }
+</style>

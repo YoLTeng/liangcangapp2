@@ -53,25 +53,37 @@ const routes = [
         path: "/details/:id",
         component: () =>
             import ("../views/Details.vue"),
-
     },
-
+    //详情页跳转到更多无恙商品
+    {
+        path: "/wuyang",
+        component: () =>
+            import ("../views/DetailsWuyang.vue")
+    },
+    //详情页跳转到更多评论
+    {
+        path: "/comments",
+        component: () =>
+            import ("../views/DetailsComments.vue")
+    },
+    //详情页跳转到购物须知
+    {
+        path: "/notice",
+        component: () =>
+            import ("../views/DetailsNotice.vue")
+    },
     //配置商品列表页的动态路由
     {
         path: "/shoplist/:id",
         component: () =>
             import ("../views/Shoplist.vue")
     },
-    {
-        path: "/notice",
-        component: () =>
-            import ("../views/DetailsNotice.vue")
-    },
+
     //游柳腾配置欢迎页面
     {
-            path: "/welcome",
-            component: () =>
-                import ("../views/Welcome.vue")
+        path: "/welcome",
+        component: () =>
+            import ("../views/Welcome.vue")
     },
     // 配置错误页面
     {
