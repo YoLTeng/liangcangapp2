@@ -37,7 +37,13 @@ import {
     Area,
     Form,
     Field,
-    Popup 
+    Popup,
+    GoodsAction,
+    GoodsActionButton,
+    GoodsActionIcon,
+    Stepper,
+    ShareSheet,
+    Rate,
 } from "vant";
 
 Vue.use(Button)
@@ -65,6 +71,12 @@ Vue.use(Field);
 Vue.use(Popup);
 //详情页引入
 Vue.use(Cell);
+Vue.use(GoodsAction);
+Vue.use(GoodsActionButton);
+Vue.use(GoodsActionIcon);
+Vue.use(Stepper);
+Vue.use(ShareSheet);
+Vue.use(Rate);
 
 
 Vue.config.productionTip = false
