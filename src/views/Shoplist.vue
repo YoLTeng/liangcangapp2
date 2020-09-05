@@ -10,16 +10,19 @@
       @click-left="onClickLeft"
     />
     <!-- 商品列表顶部tab切换 -->
-    <ul class="tabswitch">
-      <li
-        v-for="(item, index) in sidebarList"
-        :key="index"
-        @click="tabClick(index)"
-        :class="{ active: index === isActive }"
-      >
-        {{ item.title }}
-      </li>
-    </ul>
+    <div class="tabswitch">
+      <ul>
+        <li
+          v-for="(item, index) in sidebarList"
+          :key="index"
+          @click="tabClick(index)"
+          :class="{ active: index === isActive }"
+        >
+          {{ item.title }}
+        </li>
+      </ul>
+    </div>
+
     <!-- 商品内容 -->
     <van-swipe
       class="my-swipe"
@@ -29,9 +32,9 @@
       @change="onChange"
     >
       <van-swipe-item v-for="item in 6" :key="item">
-        <div class="list-wrap" >
+        <div class="list-wrap">
           <ul>
-            <li v-for="item in 10" :key="item">
+            <li v-for="item in 10" :key="item" @click="toDetails">
               <img src="../assets/findimg/img4.png" alt="" />
               <div class="shop-info">
                 <p class="title">全身按摩床垫升级款</p>
@@ -43,7 +46,6 @@
           </ul>
         </div>
       </van-swipe-item>
-     
     </van-swipe>
   </div>
 </template>
@@ -78,14 +80,14 @@ export default {
           title: "美食",
           id: "6",
         },
-        // {
-        //   title: "服装",
-        //   id: "7",
-        // },
-        // {
-        //   title: "鞋包",
-        //   id: "8",
-        // },
+        {
+          title: "服装",
+          id: "7",
+        },
+        {
+          title: "鞋包",
+          id: "8",
+        },
       ],
       isActive: 0,
     };
@@ -104,11 +106,17 @@ export default {
     },
     //点击切换商品列表
     tabClick(i) {
-      // this.isActive = i;
+      //自定义属性，跳转到下标i
       this.$refs.changebanner.swipeTo(i);
     },
-    onChange(i){
+    //左右滑动active样式跟着改变
+    onChange(i) {
       this.isActive = i;
+    },
+    //点击跳转详情页
+     toDetails(id){     
+      this.$router.push('/details/' + 12)
+
     }
   },
 };
@@ -117,26 +125,33 @@ export default {
 .shoplist {
   // 发现页tab切换
   .tabswitch {
-    background: white;
-    z-index: 2;
-    position: fixed;
-    top: 44px;
-    left: 0;
     display: flex;
     width: 375px;
     height: 46px;
-    border-bottom: 1px solid #e1e1e1;
-    li {
-      font-size: 15px;
-      color: #999999;
-      font-weight: PingFang-SC-Medium;
-      height: 43px;
-      line-height: 46px;
-      margin: 0 16px 0 16px;
-    }
-    .active {
-      color: #171717;
-      border-bottom: 3px solid;
+    ul {
+      background: white;
+      z-index: 2;
+      position: fixed;
+      top: 44px;
+      left: 0;
+      display: flex;
+      white-space: nowrap;
+      overflow: auto;
+      width: 100%;
+      border-bottom: 1px solid #e1e1e1;
+      li {
+        font-size: 15px;
+        color: #999999;
+        font-weight: PingFang-SC-Medium;
+        height: 43px;
+        width: 50px;
+        line-height: 46px;
+        margin: 0 16px 0 16px;
+      }
+      .active {
+        color: #171717;
+        border-bottom: 3px solid;
+      }
     }
   }
 

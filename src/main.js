@@ -32,7 +32,8 @@ import {
     SwipeItem,
     Cell,
     Icon,
-    Lazyload
+    Lazyload,
+    CellGroup
 } from "vant";
 
 Vue.use(Button)
@@ -54,6 +55,7 @@ Vue.use(Swipe);
 Vue.use(SwipeItem);
 Vue.use(Icon);
 Vue.use(Lazyload);
+Vue.use(CellGroup);
 //详情页引入
 Vue.use(Cell);
 

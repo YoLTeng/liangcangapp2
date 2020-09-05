@@ -13,6 +13,7 @@
 
       <!-- 内容 -->
       <ul>
+      
         <div class="img-title">
           <img src="../../assets/findimg/img1.png" alt="" />
           <p class="title">
@@ -20,20 +21,24 @@
           </p>
         </div>
         <li
-          v-for="(item, index) in findList"
+          v-for="(item, index) in classifyList"
           :key="index"
-          @click="toDetail(item.id)"
+           @click="toDetail(item.id)"
         >
-          <img :src="item.imgUrl" alt="" />
-          <span>{{ item.ptitle }}</span>
+          <img src="../../assets/findimg/img2.png" alt="" />
+          <span>{{ item.title }}</span>
         </li>
       </ul>
+      <!-- <van-swipe style="height: 200px;" vertical>
+        <van-swipe-item>1</van-swipe-item>
+        <van-swipe-item>2</van-swipe-item>
+        <van-swipe-item>3</van-swipe-item>
+        <van-swipe-item>4</van-swipe-item>
+      </van-swipe> -->
     </main>
   </div>
 </template>
 <script>
-//引入state辅助函数
-import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -72,20 +77,50 @@ export default {
           id: "8",
         },
       ],
-      //右侧商品分类
-      classifyList: [],
+      classifyList: [
+        //左侧tab数据
+        {
+          title: "家居",
+          id: "1",
+        },
+        {
+          title: "文具",
+          id: "2",
+        },
+        {
+          title: "数码",
+          id: "3",
+        },
+        {
+          title: "玩乐",
+          id: "4",
+        },
+        {
+          title: "餐厨",
+          id: "5",
+        },
+        {
+          title: "美食",
+          id: "6",
+        },
+        {
+          title: "服装",
+          id: "7",
+        },
+        {
+          title: "鞋包",
+          id: "8",
+        },
+      ],
       activeKey: 0, //左侧tab默认下标
     };
   },
-  computed: {
-    ...mapState(["findList"]),
-  },
   mounted() {
     //这里刚进页面要默认请求一次数据
-    this.$store.dispatch("getFindList2", {
-      // type: this.type,
-    });
-    // console.log(this.findList);
+    // this.$store.dispatch("getClassifyList2", {
+    //   type: this.type,
+    // });
+    // console.log(this.classifyList);
   },
   methods: {
     //点击左侧切换数据
@@ -172,6 +207,7 @@ export default {
         }
       }
     }
+    
     //
   }
 }

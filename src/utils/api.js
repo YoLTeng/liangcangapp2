@@ -15,3 +15,8 @@ import http from './http'
 // export function postDetailInfo(params) {
 //     return http.post("/details", params)
 // }
+
+//发现列表https://www.fastmock.site/mock/46cbf22e474d8f42c5ce39bd6e34342a/api/home/find
+// export function getFindList(params) {
+//         return http.post("/home/find", params)
+//     }

@@ -62,6 +62,12 @@ const routes = [
         component: () =>
             import ("../views/Shoplist.vue")
     },
+     //配置品牌的动态路由
+     {
+        path: "/brandstory/:id",
+        component: () =>
+            import ("../views/BrandStory.vue")
+    },
     {
         path: "/notice",
         component: () =>

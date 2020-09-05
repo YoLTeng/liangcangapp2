@@ -7,6 +7,11 @@ import Vuex from "vuex";
 // //引入详情页
 // import { postDetailInfo, } from '../utils/api'
 
+//发现页数据模拟请求
+import {
+    getFindList,
+} from '../utils/api'
+
 Vue.use(Vuex)
 
 const magazine = {
@@ -30,7 +35,7 @@ export default new Vuex.Store({
         //state例子
         //baninfo:""
         tjs: "",
-
+        findList: [], //发现页数据
         // //详情页数据
         // detailInfo: {},
 
@@ -45,7 +50,10 @@ export default new Vuex.Store({
         // changeDetailInfo(state, payload) {
         //     state.detailInfo = payload.info
         // }
-
+        // //发现页数据模拟请求
+        // changeFindList(state, payload) {
+        //     state.findList = payload.list;
+        // },
     },
     actions: {
         // 请求接口例子
@@ -68,6 +76,18 @@ export default new Vuex.Store({
         //     });
         //     commit('changeDetailInfo', {
         //         info: result.result
+        //     })
+        // },
+        // //发现页数据模拟请求
+        // async getFindList2({
+        //     commit
+        // }, payload) {
+        //     //result是调用获取数据方法后获得的数据
+        //     const result = await getFindList(payload)
+        //     console.log(result.data.list);
+        //     //调用mutations的方法把数据传到mutations
+        //     commit('changeFindList', {
+        //         list: result.data.list
         //     })
         // },
     },

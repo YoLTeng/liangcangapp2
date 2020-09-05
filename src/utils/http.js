@@ -6,6 +6,8 @@ import qs from 'qs';
 //创建一个axios实例
 var instance = axios.create({
     baseURL: 'https://www.baidu.com/',
+    //发现页数据模拟请求
+    // baseURL: 'https://www.fastmock.site/mock/46cbf22e474d8f42c5ce39bd6e34342a/api',
 
     // // 详情页的虚拟数据地址
     // baseURL: 'https://www.fastmock.site/mock/7b5cf26e94f623c6469346f4392c1842/',
