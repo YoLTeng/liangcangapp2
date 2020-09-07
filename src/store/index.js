@@ -8,9 +8,9 @@ import Vuex from "vuex";
 // import { postDetailInfo, } from '../utils/api'
 
 //发现页数据模拟请求
-import {
-    getFindList,
-} from '../utils/api'
+// import {
+//     getFindList,
+// } from '../utils/api'
 
 Vue.use(Vuex)
 
@@ -35,7 +35,7 @@ export default new Vuex.Store({
         //state例子
         //baninfo:""
         tjs: "",
-        findList: [], //发现页数据
+        // findList: [], //发现页数据
         // //详情页数据
         // detailInfo: {},
 
