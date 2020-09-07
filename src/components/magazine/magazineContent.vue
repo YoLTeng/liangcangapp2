@@ -3,10 +3,10 @@
   <div class="magazine-container">
     <div class="van-nav-bar">
       <div class="nav-bar-left">
-        <span class="left-month" v-show="!ifshow">JUL.27</span>
+        <span class="left-month" v-show="!ifshow">{{monthStr}}</span>
       </div>
       <div class="nav-bar-title">
-        <p :class="{ 'after-style': ifshow }">杂志</p>
+        <p :class="{ 'after-style': ifshow }">杂志 {{authorName}}</p>
       </div>
       <div class="nav-bar-right" @click="moveMagazine">
         <van-icon name="wap-nav" color="#000" />
@@ -14,7 +14,7 @@
     </div>
     <main>
       <div>
-        <magazineContentItem v-for="item in 9" :key="item" ref="scroll" />
+        <magazineContentItem v-for="item in monthList" :key="item" :item="item" ref="scroll" />
       </div>
     </main>
   </div>
@@ -29,6 +29,7 @@ export default {
   data() {
     return {
       index: 0,
+      monthStr: this.$store.state.magazine.monthList[0],
     };
   },
   components: {
@@ -37,6 +38,14 @@ export default {
   computed: {
     ifshow() {
       return this.$store.state.magazine.moveMagazine;
+    },
+
+    authorName() {
+      return this.$store.state.magazine.authorName;
+    },
+
+    monthList() {
+      return this.$store.state.magazine.monthList;
     },
   },
   mounted() {
@@ -48,8 +57,11 @@ export default {
         pullUpLoad: true,
       });
       bScroll.on("scroll", (a) => {
-        this.index = a;
-        console.log(parseInt((a.y + 20) / 250));
+        let index = parseInt(-a.y / 250) <= 0 ? 0 : parseInt(-a.y / 250);
+        // console.log(index);
+        this.monthStr = this.$store.state.magazine.monthList[index];
+        console.log(this.monthStr);
+
         // console.log(a.y);
       });
     });
@@ -86,12 +98,14 @@ export default {
     .nav-bar-title {
       font-size: 14px;
       position: absolute;
-      top: 55%;
-      left: 45%;
-      transform: translateX(-50%);
-      transform: translateY(-50%);
+      top: 50%;
+      left: 50%;
+      // margin: auto;
+      // width: 240px;
+      transform: translate(-50%, -50%);
+      // transform: translateY(-50%);
       p {
-        position: relative;
+        // position: relative;
         &::after {
           content: "";
           width: 0;

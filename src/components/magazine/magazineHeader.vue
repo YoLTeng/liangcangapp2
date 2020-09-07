@@ -2,19 +2,11 @@
 <template>
   <div class="magazine-header">
     <div class="magazine-header-top">
-      <div
-        class="header-classify"
-        :class="{ active: isactive === 0 }"
-        @click="sendIndex(0)"
-      >
+      <div class="header-classify" :class="{ active: isactive === 0 }" @click="sendIndex(0)">
         <div class="classify-img" :class="{ iffocus: isactive === 0 }"></div>
         <p>分类</p>
       </div>
-      <div
-        class="header-author"
-        :class="{ active: isactive === 1 }"
-        @click="sendIndex(1)"
-      >
+      <div class="header-author" :class="{ active: isactive === 1 }" @click="sendIndex(1)">
         <div class="author-img" :class="{ iffocus: isactive === 1 }"></div>
         <p>作者</p>
       </div>
@@ -33,11 +25,12 @@
         height="100%"
         ref="moveBox"
         :show-indicators="false"
+        :stop-propagation="false"
       >
         <van-swipe-item>
           <div class="container-classify">
             <div>
-              <magazineClassifyItem v-for="item in 18" :key="item" />
+              <magazineClassifyItem v-for="item in classifyList" :key="item" :item1="item" />
             </div>
           </div>
         </van-swipe-item>
@@ -45,7 +38,7 @@
         <van-swipe-item>
           <div class="container-author">
             <div>
-              <magazineAuthorItem v-for="item in 12" :key="item" />
+              <magazineAuthorItem v-for="item in authorList" :key="item" :item="item" />
             </div>
           </div>
         </van-swipe-item>
@@ -69,6 +62,8 @@ export default {
     return {
       xuebi: xuebi,
       index: 0,
+      authorList: this.$store.state.magazine.authorList,
+      classifyList: this.$store.state.magazine.classifyList,
     };
   },
   components: {

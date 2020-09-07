@@ -5,13 +5,11 @@
     :style="{ background: 'url(' + img1 + ')' }"
     v-lazy:background-image="img1"
   >
-    <p class="magazine-title">
-      跟着大热美剧麦瑟尔夫人，去发现50年代去发现50年代去发现50年代
-    </p>
+    <p class="magazine-title">跟着大热美剧麦瑟尔夫人，去发现50年代去发现50年代去发现50年代</p>
 
     <p class="magazine-type">—时尚—</p>
 
-    <p class="magazine-time">-JUL.13-</p>
+    <p class="magazine-time">-{{item}}-</p>
   </div>
 </template>
 
@@ -22,6 +20,9 @@ export default {
     return {
       img1: img1,
     };
+  },
+  props: {
+    item: String,
   },
 };
 </script>
