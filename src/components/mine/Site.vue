@@ -64,10 +64,9 @@ export default {
     onClickRight() {
       this.$router.push("/addside");
     },
-    //点击单选框时的时间
+    //点击单选框时的事件
     ac(index) {
       this.acti = index;
-      // this.xz = !this.xz
     },
     edit(index) {
       this.$router.push("/editass/" + index);

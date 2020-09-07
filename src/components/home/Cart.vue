@@ -1,49 +1,75 @@
 <template>
   <div class="cart">
     <!-- 购物车头部 -->
-    <van-nav-bar title="购物车" right-text="编辑" @click-right="onClickRight" v-if="ed"/>
-    <van-nav-bar title="购物车" right-text="完成" @click-right="onClickRight" v-else/>
+    <van-nav-bar
+      title="购物车"
+      right-text="编辑"
+      @click-right="onClickRight"
+      v-if="ed"
+      :fixed="true"
+      z-index="10"
+    />
+    <van-nav-bar
+      title="购物车"
+      right-text="完成"
+      @click-right="onClickRight"
+      v-else
+      :fixed="true"
+      z-index="10"
+    />
     <!-- 商品列表 -->
     <div class="goodslist">
-      <!-- 展示时的列表 -->
-      <div class="goods" v-if="ed">
-        <van-checkbox v-model="checked"></van-checkbox>
-        <van-card
-          :num="num"
-          price="2.00"
-          desc="描述信息"
-          title="商品标题"
-          thumb="https://img.yzcdn.cn/vant/ipad.jpeg"
-          origin-price="80"
-        />
-      </div>
-      <!-- 编辑时的列表 -->
-      <div class="goodsEdit" v-else>
-        <van-checkbox v-model="checked"></van-checkbox>
-        <img src="https://img.yzcdn.cn/vant/ipad.jpeg" alt />
-        <div class="goodsmsg">
-          <div class="changenum">
-            <span class="del" @click="del()">-</span>
-            <em>{{goodsnum}}</em>
-            <span class="num" @click="add()">+</span>
-          </div>
-          <div class="tit van-ellipsis">鞋子鞋子ewewewewewew</div>
-          <div class="price">￥<i>333</i><span>￥<i>333</i></span></div>
+      <div class="goodwrap" v-for="(item,index) in arr" :key="item.id">
+        <!-- 展示时的列表 -->
+        <div class="goods" v-if="ed">
+          <input
+            type="checkbox"
+            v-model="checkGroup"
+            :value="item"
+            class="goodsCheck"
+            @change="checked"
+          />
+          <van-card
+            :num="item.num"
+            :price="item.price"
+            desc="描述信息"
+            :title="item.tit"
+            :thumb="item.img"
+            :origin-price="item.cost"
+          />
         </div>
-        <span class="shanchu">
-          删除
-        </span>
+        <!-- 编辑时的列表 -->
+        <div class="goodsEdit" v-else>
+          <input type="checkbox" v-model="checkGroup" :value="item" class="goodsCheck" />
+          <img src="https://img.yzcdn.cn/vant/ipad.jpeg" alt />
+          <div class="goodsmsg">
+            <div class="changenum">
+              <span class="del" @click="del(item)">-</span>
+              <em>{{item.num}}</em>
+              <span class="num" @click="add(item)">+</span>
+            </div>
+            <div class="tit">{{item.tit}}</div>
+            <div class="price">
+              ￥
+              <i>{{item.price}}</i>
+              <span>
+                ￥
+                <i>{{item.cost}}</i>
+              </span>
+            </div>
+          </div>
+          <span class="shanchu" @click="shanchu(index)">删除</span>
+        </div>
       </div>
-
       <!-- 提交订单栏 -->
       <van-submit-bar
-        :price="3050"
+        :price="getsum()*100"
         button-text="结算"
         @submit="onSubmit"
         button-color="#000"
         label="总价:"
       >
-        <van-checkbox v-model="checked" shape="square">全选</van-checkbox>
+        <input type="checkbox" v-model="Allcheck" @change="allchange" />
       </van-submit-bar>
     </div>
   </div>
@@ -56,13 +82,47 @@ export default {
   data() {
     return {
       //复选框默认值
-      checked: false,
+      Allcheck: false,
+      goodsnum: 2,
       // 编辑商品列表的标记
-      ed:true,
-      //商品数量
-      goodsnum:33,
-      //展示页商品数量
-      num:3
+      ed: true,
+      //单选框数组
+      checkGroup: [],
+      //复选框的数组
+      arr: [
+        {
+          id: 1,
+          img: "https://img.yzcdn.cn/vant/ipad.jpeg",
+          tit: "鞋子",
+          num: 1,
+          price: 12,
+          cost: 67,
+        },
+        {
+          id: 2,
+          img: "https://img.yzcdn.cn/vant/ipad.jpeg",
+          tit: "帽子",
+          num: 2,
+          price: 15,
+          cost: 19,
+        },
+        {
+          id: 3,
+          img: "https://img.yzcdn.cn/vant/ipad.jpeg",
+          tit: "裤子",
+          num: 3,
+          price: 87,
+          cost: 106,
+        },
+        {
+          id: 4,
+          img: "https://img.yzcdn.cn/vant/ipad.jpeg",
+          tit: "袜子",
+          num: 4,
+          price: 6,
+          cost: 9,
+        },
+      ],
     };
   },
   mounted() {
@@ -76,23 +136,57 @@ export default {
   methods: {
     //点击编辑按钮时触发
     onClickRight() {
-      this.ed = !this.ed
+      this.ed = !this.ed;
+    },
+    // 点击单选按钮时触发的方法
+    getsum() {
+      let sum = 0;
+      for (var i in this.checkGroup) {
+        sum += this.checkGroup[i].num * this.checkGroup[i].price;
+      }
+      return sum;
+    },
+    //点击单选按钮时触发
+    checked() {
+      if (this.checkGroup.length === this.arr.length) {
+        this.Allcheck = true;
+      } else {
+        this.Allcheck = false;
+      }
+    },
+    //点击全选按钮时触发的方法
+    allchange() {
+      if (this.Allcheck) {
+        this.checkGroup = this.arr;
+      } else {
+        this.checkGroup = [];
+      }
     },
     //点击减少数量按钮时
-    del(){
-      this.goodsnum--
+    del(item) {
+      if (item.num == 1) {
+        item.num == 1;
+      } else {
+        item.num--;
+      }
     },
     //点击增加数量按钮时
-    add(){
-      this.goodsnum++
+    add(item) {
+      item.num++;
+    },
+    //点击删除按钮时
+    shanchu(index){
+      console.log(1);
+      this.arr.splice(index,1);
     },
     //点击结算按钮时触发
     onSubmit() {},
+    //点击全选按钮时触发
   },
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .cart {
   width: 100%;
   height: 100%;
@@ -138,6 +232,7 @@ export default {
   }
   .goodslist {
     padding-bottom: 58px;
+    margin-top: 40px;
     .goodsEdit {
       margin-top: 8px;
       width: 100%;
@@ -146,8 +241,8 @@ export default {
       position: relative;
       display: flex;
       position: relative;
-      background: #FAFAFA;
-      .van-checkbox {
+      background: #fafafa;
+      .goodsCheck {
         position: absolute;
         left: 10px;
         top: 50%;
@@ -183,25 +278,25 @@ export default {
           margin: 0 16px;
         }
       }
-      .tit{
+      .tit {
         width: 110px;
         margin-top: 6px;
         font-size: 14px;
       }
-      .price{
+      .price {
         margin-top: 12px;
         font-size: 14px;
-        color: #6296CE;
+        color: #6296ce;
         font-weight: normal;
-        span{
-            text-decoration: line-through;
-            margin-left: 6px;
-          i{
+        span {
+          text-decoration: line-through;
+          margin-left: 6px;
+          i {
             color: #999;
           }
         }
       }
-      .shanchu{
+      .shanchu {
         font-size: 18px;
         height: 88px;
         position: absolute;
@@ -216,11 +311,13 @@ export default {
   }
   .goods {
     position: relative;
-    .van-checkbox {
+    .goodsCheck {
       position: absolute;
       left: 10px;
       top: 50%;
       z-index: 10;
+      border: 1px solid #000;
+      border-radius: 50%;
     }
   }
 }
