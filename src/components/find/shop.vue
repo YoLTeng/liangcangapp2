@@ -82,9 +82,9 @@ export default {
   },
   mounted() {
     //这里刚进页面要默认请求一次数据
-    this.$store.dispatch("getFindList2", {
-      // type: this.type,
-    });
+    // this.$store.dispatch("getFindList2", {
+    //   // type: this.type,
+    // });
     // console.log(this.findList);
   },
   methods: {
