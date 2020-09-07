@@ -44,6 +44,7 @@ import {
     Stepper,
     ShareSheet,
     Rate,
+    CellGroup
 } from "vant";
 
 Vue.use(Button)
@@ -69,6 +70,7 @@ Vue.use(Area);
 Vue.use(Form);
 Vue.use(Field);
 Vue.use(Popup);
+Vue.use(CellGroup);
 //详情页引入
 Vue.use(Cell);
 Vue.use(GoodsAction);

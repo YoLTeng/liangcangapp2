@@ -67,6 +67,12 @@ const routes = [
             import ("../views/DetailsComments.vue")
     },
     //详情页跳转到购物须知
+     //配置品牌的动态路由
+     {
+        path: "/brandstory/:id",
+        component: () =>
+            import ("../views/BrandStory.vue")
+    },
     {
         path: "/notice",
         component: () =>

@@ -12,13 +12,16 @@
       title-active-color="#000"
       title-inactive-color="#666"
       color="#000"
+    
     >
       <!-- 商店 -->
-      <van-tab title="商店" to="">
+      <van-tab title="商店" to=""  class="shop-brand">
         <findshop></findshop>
       </van-tab>
 
-      <van-tab title="品牌">内容 2</van-tab>
+      <van-tab title="品牌">
+        <findBrand/>
+      </van-tab>
     </van-tabs>
   </div>
 </template>
@@ -26,6 +29,8 @@
 <script>
 //引入组件
 import findshop from "../find/shop";
+import findBrand from "../find/brand";
+
 //使用辅助函数
 import { mapState } from "vuex";
 export default {
@@ -38,6 +43,7 @@ export default {
   //组件
   components: {
     findshop,
+    findBrand
   },
   mounted() {
     //在这里调用actions里的函数
@@ -65,17 +71,8 @@ export default {
   .van-search__content {
     background: #f2f0f3ff;
     height: 30px;
-    .van-field__left-icon {
-      margin-left: 2.2rem;
-    }
-    .van-field__control {
-      margin-left: -47px;
-    }
-    input::-webkit-input-placeholder {
-      color: #333;
-      /* 修改字号，默认继承input */
-      font-size: 14px;
-    }
+  
   }
+  
 }
 </style>
