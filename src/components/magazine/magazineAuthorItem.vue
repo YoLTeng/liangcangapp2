@@ -1,11 +1,11 @@
 <!-- 这是杂志的作者分类页面 -->
 <template>
-  <div class="magazine-author-item">
+  <div class="magazine-author-item" @click="getAuthor(item)">
     <div class="author-pic">
-      <img :src="imgauthor" alt="" />
+      <img :src="imgauthor" alt />
     </div>
     <div class="author-text">
-      <p class="author-title">良仓</p>
+      <p class="author-title">{{item}}</p>
       <p class="author-introduce">生活美学指南</p>
     </div>
   </div>
@@ -19,6 +19,14 @@ export default {
     return {
       imgauthor: imgauthor,
     };
+  },
+  props: ["item"],
+  methods: {
+    getAuthor(i) {
+      this.$store.commit("magazine/ifmove");
+      console.log(111);
+      this.$store.commit("magazine/setAuthor", this.item);
+    },
   },
 };
 </script>

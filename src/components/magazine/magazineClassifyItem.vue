@@ -3,8 +3,9 @@
   <div
     class="magazine-classify-item"
     :style="{ background: 'url(' + bg + ')', backgroundSize: '100%' }"
+    @click="getClassify(item1)"
   >
-    <p>我的收藏</p>
+    <p>{{item1}}</p>
   </div>
 </template>
 
@@ -16,6 +17,14 @@ export default {
     return {
       bg: bg,
     };
+  },
+  props: ["item1"],
+  methods: {
+    getClassify(i) {
+      this.$store.commit("magazine/ifmove");
+      console.log(111);
+      this.$store.commit("magazine/setAuthor", this.item1);
+    },
   },
 };
 </script>

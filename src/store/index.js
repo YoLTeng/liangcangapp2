@@ -12,8 +12,12 @@ Vue.use(Vuex)
 const magazine = {
     namespaced: true, //添加命名空间，不同模块相同变量名不冲突
     state: {
+        monthList: ['JUL.31', 'JUL.30', 'JUL.23', 'JUL.21', 'JUL.20', 'JUL.18', 'JUL.17', 'JUL.13', 'JUL.03'],
+        authorList: ['良仓', 'Voicer', '《 新视线》', 'Amcreative', '摩根族', '山形', '理想生活实验室', '日本设计小站'],
+        classifyList: ['我的收藏', '所有杂志', '趣物', '数码', '汽车', '文化', '时尚', '美食', '建筑', '空间', '圈子', '清单', '视频', '活动'],
         moveMagazine: false,
         index: 0,
+        authorName: '',
     },
     mutations: {
         ifmove(state) {
@@ -21,7 +25,13 @@ const magazine = {
         },
         isactive(state, n) {
             state.index = n;
-        }
+        },
+        setAuthor(state, name) {
+            state.authorName = name;
+        },
+        // setClassify(state, name) {
+        //     state.authorName = name;
+        // }
     }
 }
 
