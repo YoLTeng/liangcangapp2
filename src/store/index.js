@@ -45,7 +45,7 @@ export default new Vuex.Store({
         //state例子
         //baninfo:""
         tjs: "",
-        findList: [], //发现页数据
+        // findList: [], //发现页数据
         // //详情页数据
         // detailInfo: {},
 

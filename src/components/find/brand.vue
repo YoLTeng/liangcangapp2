@@ -6,8 +6,7 @@
         src="https://cdn4.buysellads.net/uu/1/3386/1525189943-38523.png"
         alt=""
       />
-      <van-cell title="品牌名" size="large" is-link />
-      <!-- <van-cell title="品牌名" is-link clickable="true"/> -->
+      <van-cell title="品牌名" size="large" />
     </div>
   </div>
 </template>
