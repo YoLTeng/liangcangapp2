@@ -39,7 +39,7 @@
     </div>
     <!--下半部-->
     <div class="foot">
-      <div class="foot-box1" >
+      <div class="foot-box1">
         <button class="foot-box1-btn">
           <div class="foot-box1-btn-img">
             <img src="../../assets/img/mini/mini-foot-box1-btn.png" alt />
@@ -59,7 +59,7 @@
           </div>
         </button>
       </div>
-      <div class="foot-box3" @click="gosite()">
+      <div class="foot-box3">
         <button class="foot-box3-btn">
           <div class="foot-box3-btn-img">
             <img src="../../assets/img/mini/mini-foot-box3-btn.png" alt />
@@ -119,16 +119,12 @@ export default {
     //在这里使用辅助函数获取state里的数据
     //例子 ...mapState(["baninfo"])
   },
-  methods: {
-    gosite(){
-      this.$router.push("/side")
-    }
-  },
 };
 </script>
 <style lang="scss" scoped>
 .mini {
   width: 375px;
+  //height: 811px;
 }
 .top {
   width: 100%;
