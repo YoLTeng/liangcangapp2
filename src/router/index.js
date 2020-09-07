@@ -73,12 +73,30 @@ const routes = [
             component: () =>
                 import ("../views/Welcome.vue")
     },
+    //个人详情页的跳转路由
+    {//登录注册
+        path:"/login",
+        component:()=>
+        import("../components/mine/login.vue")
+
+    },
+    {//订单
+        path:"/orderform",
+        component:()=>
+        import("../components/mine/orderform.vue")
+    },
+    {//心愿单
+        path:"/wish",
+        component:()=>
+        import("../components/mine/wish.vue")
+    },
     // 配置错误页面
     {
         path: "*",
         component: () =>
             import ("../views/Notfound.vue") //路由懒加载
     },
+
 ]
 
 const router = new VueRouter({

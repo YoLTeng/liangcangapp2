@@ -1,7 +1,7 @@
 <template>
   <div class="orderform">
     <div class="orderform-top">
-      <van-nav-bar title="我的订单" right-text="客服" left-arrow />
+      <van-nav-bar title="我的订单" right-text="客服" left-arrow @click-left="onClickLeft"/>
     </div>
     <div>
       <van-tabs v-model="active">
@@ -33,6 +33,11 @@ export default {
   mounted() {
     //在这里调用actions里的函数
     //例子:this.$store.dispatch("getBannerinfo")
+  },
+  methods:{
+    onClickLeft() {
+     this.$router.push("./mine");
+    },
   },
   computed: {
     //在这里使用辅助函数获取state里的数据

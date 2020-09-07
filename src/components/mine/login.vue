@@ -1,12 +1,12 @@
 <template>
   <div class="login">
     <div class="login-box1">
-      <button class="login-box1-btn">
+      <button class="login-box1-btn" @click="back">
         <p>X</p>
       </button>
     </div>
     <div class="login-box2">
-      <img src="../assets/img/login/login-box2-logo.png" alt />
+      <img src="../../assets/img/login/login-box2-logo.png" alt />
     </div>
     <div class="login-box3">
       <div class="login-box3-font">
@@ -17,7 +17,7 @@
       <van-field  type="tel" placeholder="请输入手机号"  input-align="left"/>
     </div>
     <div class="login-box5">
-      <button class="login-box5-btn"><img src="../assets/img/login/login-box5-btn.png" alt=""></button>
+      <button class="login-box5-btn"><img src="../../assets/img/login/login-box5-btn.png" alt=""></button>
     </div>
     <div class="login-box6">
       <van-field  type="tel" placeholder="6位验证码" input-align="left"/>
@@ -26,7 +26,7 @@
       <div class="login-box7-font"><p>登录即表示您同意 良仓用户协议 和 隐私政策</p></div>
     </div>
     <div class="login-box8">
-      <button class="login-box8-btn"><img src="../assets/img/login/login-box8-btn.png" alt=""></button>
+      <button class="login-box8-btn"><img src="../../assets/img/login/login-box8-btn.png" alt=""></button>
     </div>
     <div class="login-box9">
       <div class="login-box9-font"><p>——首次登录自动创建良仓账户——</p></div>
@@ -53,6 +53,11 @@ export default {
     //在这里调用actions里的函数
     //例子:this.$store.dispatch("getBannerinfo")
   },
+  methods:{
+    back() {
+     this.$router.push("./mine");
+    },
+  },
   computed: {
     //在这里使用辅助函数获取state里的数据
     //例子 ...mapState(["baninfo"])
@@ -63,6 +68,8 @@ export default {
 .login {
   width: 375px;
   position: relative;
+  height: 677px;
+  background: url(../../assets/img/login/login-background.png);
 }
 .login .login-box1 .login-box1-btn {
   width: 18px;
