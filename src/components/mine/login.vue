@@ -63,12 +63,16 @@ export default {
     //例子 ...mapState(["baninfo"])
   },
 };
+document.body.addEventListener('touchmove', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+    }, { passive: false });
 </script>
 <style lang="scss" scoped>
 .login {
   width: 375px;
+  height: 667px;
   position: relative;
-  height: 677px;
   background: url(../../assets/img/login/login-background.png);
 }
 .login .login-box1 .login-box1-btn {
