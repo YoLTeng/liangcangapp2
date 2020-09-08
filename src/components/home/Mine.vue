@@ -91,14 +91,9 @@
 </template>
 <script>
 import Vue from "vue";
-import { Image as VanImage, Button, Icon, ActionSheet, Toast } from "vant";
-import VueRouter from 'vue-router'
-Vue.use(VueRouter);
-Vue.use(VanImage);
-Vue.use(Button);
-Vue.use(Icon);
-Vue.use(ActionSheet);
+import { ActionSheet, Toast } from "vant";
 Vue.use(Toast);
+Vue.use(ActionSheet);
 //使用辅助函数
 //import {mapState} from "vuex"
 export default {

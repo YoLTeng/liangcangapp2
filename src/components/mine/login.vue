@@ -48,10 +48,7 @@
 </template>
 <script>
 import Vue from "vue";
-import { Image as VanImage, Button, Icon, Field } from "vant";
-Vue.use(VanImage);
-Vue.use(Button);
-Vue.use(Icon);
+import { Field } from "vant";
 Vue.use(Field);
 //使用辅助函数
 //import {mapState} from "vuex"
@@ -66,7 +63,7 @@ export default {
   methods: {
     back() {
       this.$router.push("./mine");
-    },
+    }
   },
   computed: {
     //在这里使用辅助函数获取state里的数据

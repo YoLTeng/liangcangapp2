@@ -16,14 +16,6 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
-import { Image as VanImage, Button, Icon, NavBar, Tab, Tabs } from "vant";
-Vue.use(VanImage);
-Vue.use(Button);
-Vue.use(Icon);
-Vue.use(Tab);
-Vue.use(Tabs);
-Vue.use(NavBar);
 //使用辅助函数
 //import {mapState} from "vuex"
 export default {
