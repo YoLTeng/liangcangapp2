@@ -110,6 +110,9 @@ export default {
     onCancel() {
       Toast("取消");
     },
+    gosite(){
+      this.$router.push("/side")
+    }
   },
   mounted() {
     //在这里调用actions里的函数
@@ -118,12 +121,7 @@ export default {
   computed: {
     //在这里使用辅助函数获取state里的数据
     //例子 ...mapState(["baninfo"])
-  },
-  methods: {
-    gosite(){
-      this.$router.push("/side")
-    }
-  },
+  }
 };
 </script>
 <style lang="scss" scoped>
