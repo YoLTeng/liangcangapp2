@@ -44,7 +44,8 @@ import {
     Stepper,
     ShareSheet,
     Rate,
-    CellGroup
+    CellGroup,
+    Toast
 } from "vant";
 
 Vue.use(Button)
@@ -79,6 +80,7 @@ Vue.use(GoodsActionIcon);
 Vue.use(Stepper);
 Vue.use(ShareSheet);
 Vue.use(Rate);
+Vue.use(Toast);
 
 
 Vue.config.productionTip = false
