@@ -31,8 +31,11 @@ export default {
   mounted() {
     //在这里调用actions里的函数
     //例子:this.$store.dispatch("getBannerinfo")
-    if (this.$store.state.magazine.moveMagazine) {
-      this.$store.commit("magazine/ifmove");
+    if (
+      this.$store.state.magazine.index ||
+      this.$store.state.magazine.authorName
+    ) {
+      this.$store.commit("magazine/first");
     }
   },
   methods: {

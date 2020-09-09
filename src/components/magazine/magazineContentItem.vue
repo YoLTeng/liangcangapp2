@@ -2,14 +2,14 @@
 <template>
   <div
     class="magazine-item"
-    :style="{ background: 'url(' + img1 + ')' }"
-    v-lazy:background-image="img1"
+    :style="{ background: 'url(' + item.pic + ') 0  0  100%' } "
+    v-lazy:background-image="item.pic"
   >
-    <p class="magazine-title">跟着大热美剧麦瑟尔夫人，去发现50年代去发现50年代去发现50年代</p>
+    <p class="magazine-title">{{item.intr}}</p>
 
-    <p class="magazine-type">—时尚—</p>
+    <p class="magazine-type">—{{item.typeName}}—</p>
 
-    <p class="magazine-time">-{{item}}-</p>
+    <p class="magazine-time">-{{item.time}}-</p>
   </div>
 </template>
 
@@ -17,12 +17,10 @@
 import img1 from "../../assets/img/magazineImgs/1546491175586831.png";
 export default {
   data() {
-    return {
-      img1: img1,
-    };
+    return {};
   },
   props: {
-    item: String,
+    item: Object,
   },
 };
 </script>
@@ -31,6 +29,7 @@ export default {
   width: 100%;
   height: 210px;
   margin-bottom: 40px;
+  background-size: 100%;
   &:nth-last-child(1) {
     margin-bottom: 0;
   }
@@ -46,6 +45,7 @@ export default {
   color: #f3eff3;
   position: relative;
   .magazine-title {
+    text-align: center;
     width: 322px;
     white-space: nowrap;
     overflow: hidden;

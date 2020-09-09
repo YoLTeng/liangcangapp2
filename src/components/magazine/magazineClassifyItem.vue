@@ -2,28 +2,27 @@
 <template>
   <div
     class="magazine-classify-item"
-    :style="{ background: 'url(' + bg + ')', backgroundSize: '100%' }"
-    @click="getClassify(item1)"
+    :style="{ background: 'url(' + item1.pic + ')', backgroundSize: '100%' }"
+    @click="getClassify(item1.name)"
   >
-    <p>{{item1}}</p>
+    <p>{{ item1.name }}</p>
   </div>
 </template>
 
 <script>
-import bg from "../../assets/img/magazineImgs/t01.png";
-
 export default {
   data() {
-    return {
-      bg: bg,
-    };
+    return {};
   },
   props: ["item1"],
   methods: {
     getClassify(i) {
       this.$store.commit("magazine/ifmove");
       console.log(111);
-      this.$store.commit("magazine/setAuthor", this.item1);
+      this.$store.commit("magazine/setAuthor", i);
+      this.$store.dispatch("magazine/getAllMagazine", {
+        typeId: this.item1.id,
+      });
     },
   },
 };
