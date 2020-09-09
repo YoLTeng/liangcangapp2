@@ -14,6 +14,7 @@ import "amfe-flexible";
 
 //按需引入组件
 import {
+    Image as VanImage,
     Button,
     Tabbar,
     TabbarItem,
@@ -47,7 +48,7 @@ import {
     CellGroup,
     Toast
 } from "vant";
-
+Vue.use(VanImage);
 Vue.use(Button)
 Vue.use(Tabbar);
 Vue.use(TabbarItem);

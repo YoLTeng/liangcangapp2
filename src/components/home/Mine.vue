@@ -17,7 +17,7 @@
           <img src="../../assets/img/mini/mini-top-box2-logo.png" alt />
         </div>
       </div>
-      <div class="top-box3">
+      <div class="top-box3" @click="tologin">
         <div class="top-box3-btn">
           <van-button type="default">
             <p>注册|登录</p>
@@ -26,7 +26,7 @@
       </div>
       <div class="top-box4">
         <div class="top-box4-btn1">
-          <van-button type="default">
+          <van-button type="default" @click="toorderform">
             <p>我的订单</p>
           </van-button>
         </div>
@@ -39,7 +39,7 @@
     </div>
     <!--下半部-->
     <div class="foot">
-      <div class="foot-box1" >
+      <div class="foot-box1" @click="towish">
         <button class="foot-box1-btn">
           <div class="foot-box1-btn-img">
             <img src="../../assets/img/mini/mini-foot-box1-btn.png" alt />
@@ -91,12 +91,9 @@
 </template>
 <script>
 import Vue from "vue";
-import { Image as VanImage, Button, Icon, ActionSheet, Toast } from "vant";
-Vue.use(VanImage);
-Vue.use(Button);
-Vue.use(Icon);
-Vue.use(ActionSheet);
+import { ActionSheet, Toast } from "vant";
 Vue.use(Toast);
+Vue.use(ActionSheet);
 //使用辅助函数
 //import {mapState} from "vuex"
 export default {
@@ -112,6 +109,15 @@ export default {
     },
     gosite(){
       this.$router.push("/side")
+    },
+    tologin(){
+      this.$router.push('/login')
+    },
+    towish(){
+      this.$router.push('/wish')
+    },
+    toorderform(){
+      this.$router.push('/orderform')
     }
   },
   mounted() {

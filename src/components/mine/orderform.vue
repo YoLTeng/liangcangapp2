@@ -1,7 +1,7 @@
 <template>
   <div class="orderform">
     <div class="orderform-top">
-      <van-nav-bar title="我的订单" right-text="客服" left-arrow />
+      <van-nav-bar title="我的订单" right-text="客服" left-arrow @click-left="onClickLeft"/>
     </div>
     <div>
       <van-tabs v-model="active">
@@ -16,14 +16,6 @@
   </div>
 </template>
 <script>
-import Vue from "vue";
-import { Image as VanImage, Button, Icon, NavBar, Tab, Tabs } from "vant";
-Vue.use(VanImage);
-Vue.use(Button);
-Vue.use(Icon);
-Vue.use(Tab);
-Vue.use(Tabs);
-Vue.use(NavBar);
 //使用辅助函数
 //import {mapState} from "vuex"
 export default {
@@ -33,6 +25,11 @@ export default {
   mounted() {
     //在这里调用actions里的函数
     //例子:this.$store.dispatch("getBannerinfo")
+  },
+  methods:{
+    onClickLeft() {
+     this.$router.push("./mine");
+    },
   },
   computed: {
     //在这里使用辅助函数获取state里的数据
