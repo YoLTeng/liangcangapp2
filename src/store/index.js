@@ -30,14 +30,20 @@ export default new Vuex.Store({
         //state例子
         //baninfo:""
         tjs: "",
-
+        historysearch: []
         // //详情页数据
         // detailInfo: {},
 
     },
     mutations: {
         increment (state, a) {
-            state.historysearch = JSON.parse(window.localStorage.getItem('logindata'))
+
+            // state.historysearch = JSON.parse(window.localStorage.getItem('logindata'))
+            if(window.localStorage.getItem('logindata')) {
+                state.historysearch = JSON.parse(window.localStorage.getItem('logindata'))
+                // state.historysearch.push(a)
+                window.localStorage.setItem('logindata',JSON.stringify(state.historysearch))
+            }
             state.historysearch.push(a)
             window.localStorage.setItem('logindata',JSON.stringify(state.historysearch))
         }

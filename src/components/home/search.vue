@@ -31,7 +31,7 @@ export default {
       value: '',
       every1: ['月饼','红酒','包','茶','中秋'],
       every2: ['香蕉','被子','茶具','香水','按摩'],
-      historysearch:{}
+      historysearch:[]
     };
   },
   // updated() {
