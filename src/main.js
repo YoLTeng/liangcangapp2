@@ -32,7 +32,8 @@ import {
     SwipeItem,
     Cell,
     Icon,
-    Lazyload
+    Lazyload,
+    Toast
 } from "vant";
 
 Vue.use(Button)
@@ -56,6 +57,7 @@ Vue.use(Icon);
 Vue.use(Lazyload);
 //详情页引入
 Vue.use(Cell);
+Vue.use(Toast);
 
 
 Vue.config.productionTip = false

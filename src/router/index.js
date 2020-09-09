@@ -26,6 +26,11 @@ const routes = [
                     import ("../components/home/Shop.vue")
             },
             {
+                path: "/search",
+                component: () =>
+                    import ("../components/home/search.vue")
+            },
+            {
                 path: "/find",
                 component: () =>
                     import ("../components/home/Find.vue")

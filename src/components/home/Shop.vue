@@ -1,8 +1,18 @@
 <template>
   <div class="shop">
-    <van-search placeholder="搜索商品、品牌" input-align="center" />
-    <van-tabs color="black" line-width="20px" title-active-font-size="64px">
-      <van-tab v-for="(item, index) in tab" :title="item.name" :key="index">
+    <div class="header">
+      <van-search placeholder="搜索商品、品牌" input-align="center" @click="searchPage"/>
+      <van-tabs color="black" line-width="20px" title-active-font-size="64px">
+        <van-tab v-for="(item, index) in tab" :title="item.name" :key="index">
+          
+        </van-tab>
+      </van-tabs>
+    </div>
+
+
+    <keep-alive>
+
+    <div class="main">
         <van-swipe :width="300" indicator-width="16px" autoplay="3000">
           <van-swipe-item>
             <img class="img" src="../../assets/img/良仓.生活美学平台.jpg" alt />
@@ -51,8 +61,46 @@
         </div>
         <ShopList>
         </ShopList>
-      </van-tab>
-    </van-tabs>
+      <div class="good">
+          <div class="left">
+              <div class="top">
+                <section>
+                  <p class="title">小王子金属款OTR收音机</p>
+                  <p class="detail">复古嬉皮金属色</p>
+                </section>
+                <img class="img1" src="../../assets/img/1@3x(1).png" alt />
+              </div>
+              <div class="top">
+                  <section>
+                      <p class="title">新款挂耳咖啡 超级澎湃装</p>
+                      <p class="detail">一包喝遍世界好咖啡</p>
+                </section>
+                <img class="img3" src="../../assets/img/新款挂耳咖啡 超级澎湃装  一包喝遍世界好咖啡.良仓－生活美学指南@3x.png" alt />
+              </div>
+            </div>
+            <div class="right">
+              <div class="top">
+                  <section>
+                      <p class="title">粉饼一样可爱的蓝牙耳机</p>
+                      <p class="detail">元气少女的口袋萌物</p>
+                  </section>
+                <img class="img2" src="../../assets/img/潮无线Lucky蓝牙耳机  潮玩人气IP.良仓－生活美学指南@3x.png" alt />
+              </div>
+              <div class="top">
+                  <section>
+                      <p class="title">神秘撩人的香气-蓝影</p>
+                      <p class="detail">调香师与摄影师联袂创作</p>
+                  </section>
+                <img class="img4" src="..\..\assets\img\神秘撩人的香气-蓝影  调香师与摄影师联袂创作.良仓－生活美学指南@3x.png" alt />
+              </div>
+          </div>
+        </div>
+        <ShopList />
+    </div>
+    </keep-alive>
+
+
+
   </div>
 </template>
 
@@ -94,6 +142,11 @@ export default {
       ],
     };
   },
+  methods: {
+    searchPage() {
+      this.$router.push('/search')
+    }
+  },
   components:{
       ShopList
   },
@@ -109,6 +162,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "../../assets/style/shop.css";
+.header {
+  position: fixed;
+  z-index: 999;
+}
 .van-search__content {
   background: #f9f9f9;
 }
@@ -150,56 +207,60 @@ export default {
   width: 166px;
   height: 215px;
 }
-.good {
-  img {
-    margin-bottom: 10px;
-  }
-  padding: 18px;
-  display: flex;
-  justify-content: space-between;
-  .left {
-      .top {
-      position: relative;
-          section {
-              .title {
-                  padding-left: 5px;
-                  margin-top: 5px;
-                  font-size: 14px;
-                  font-weight: 900;
-              }
-              .detail {
-                  padding-left: 5px;
-                  margin-top: 5px;
-                  font-size: 12px;
-              }
-            position: absolute;
-            z-index: 10;
-          }
+.main {
+  position: relative;
+  top: 97.97px;
+  .good {
+    img {
+      margin-bottom: 10px;
     }
+    padding: 18px;
     display: flex;
-    flex-direction: column;
-  }
-.right {
-      .top {
-      position: relative;
-          section {
-              .title {
-                  padding-left: 5px;
-                  margin-top: 5px;
-                  font-size: 14px;
-                  font-weight: 900;
-              }
-              .detail {
-                  padding-left: 5px;
-                  margin-top: 5px;
-                  font-size: 12px;
-              }
-            position: absolute;
-            z-index: 10;
-          }
+    justify-content: space-between;
+    .left {
+        .top {
+        position: relative;
+            section {
+                .title {
+                    padding-left: 5px;
+                    margin-top: 5px;
+                    font-size: 14px;
+                    font-weight: 900;
+                }
+                .detail {
+                    padding-left: 5px;
+                    margin-top: 5px;
+                    font-size: 12px;
+                }
+              position: absolute;
+              z-index: 10;
+            }
+      }
+      display: flex;
+      flex-direction: column;
     }
-    display: flex;
-    flex-direction: column;
+  .right {
+        .top {
+        position: relative;
+            section {
+                .title {
+                    padding-left: 5px;
+                    margin-top: 5px;
+                    font-size: 14px;
+                    font-weight: 900;
+                }
+                .detail {
+                    padding-left: 5px;
+                    margin-top: 5px;
+                    font-size: 12px;
+                }
+              position: absolute;
+              z-index: 10;
+            }
+      }
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 </style>

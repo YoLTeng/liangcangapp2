@@ -36,6 +36,11 @@ export default new Vuex.Store({
 
     },
     mutations: {
+        increment (state, a) {
+            state.historysearch = JSON.parse(window.localStorage.getItem('logindata'))
+            state.historysearch.push(a)
+            window.localStorage.setItem('logindata',JSON.stringify(state.historysearch))
+        }
         //mutation例子
         // getbann(state,payload){
         //   state.baninfo = payload.info
