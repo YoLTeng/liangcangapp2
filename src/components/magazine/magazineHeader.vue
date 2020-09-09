@@ -30,7 +30,26 @@
         <van-swipe-item>
           <div class="container-classify">
             <div>
-              <magazineClassifyItem v-for="item in classifyList" :key="item" :item1="item" />
+              <div
+                class="magazine-classify-item"
+                v-if="classifyMy"
+                :style="{ background: 'url(' + classifyMy.pic + ')', backgroundSize: '100%' }"
+              >
+                <p>{{ classifyMy.name }}</p>
+              </div>
+              <div
+                class="magazine-classify-item"
+                v-if="classifyHead"
+                :style="{ background: 'url(' + classifyHead.pic + ')', backgroundSize: '100%' }"
+                @click="getClassify('')"
+              >
+                <p>{{ classifyHead.name }}</p>
+              </div>
+              <magazineClassifyItem
+                v-for="(item, index) in classifyList"
+                :key="index"
+                :item1="item"
+              />
             </div>
           </div>
         </van-swipe-item>
@@ -38,7 +57,7 @@
         <van-swipe-item>
           <div class="container-author">
             <div>
-              <magazineAuthorItem v-for="item in authorList" :key="item" :item="item" />
+              <magazineAuthorItem v-for="(item, index) in authorList" :key="index" :item="item" />
             </div>
           </div>
         </van-swipe-item>
@@ -62,8 +81,7 @@ export default {
     return {
       xuebi: xuebi,
       index: 0,
-      authorList: this.$store.state.magazine.authorList,
-      classifyList: this.$store.state.magazine.classifyList,
+      bScroll: "",
     };
   },
   components: {
@@ -74,22 +92,78 @@ export default {
     isactive() {
       return this.$store.state.magazine.index;
     },
+    classifyMy() {
+      return this.$store.state.magazine.classifyList1[0];
+    },
+    classifyHead() {
+      return this.$store.state.magazine.classifyList1[1];
+    },
+    classifyList() {
+      return this.$store.state.magazine.classifyList1.slice(2);
+    },
+    authorList() {
+      return this.$store.state.magazine.authorList1;
+    },
+  },
+  watch: {
+    authorList() {
+      if (this.bScroll) {
+        //重新计算高度
+        this.bScroll.refresh();
+        //当数据加载完毕以后通知better-scroll
+        this.bScroll.finishPullUp();
+      }
+    },
+    // classifyList
   },
   mounted() {
-    let bScroll = new BScroll(".container-author ", {
-      // 滚动部分允许点击
-      click: true,
-      // 允许上拉加载
-      pullUpLoad: true,
-    });
-    let bScroll1 = new BScroll(".container-classify", {
-      // 滚动部分允许点击
-      click: true,
-      // 允许上拉加载
-      pullUpLoad: true,
-    });
+    // this.$store.dispatch("magazine/getMagazineClassify");
+    // this.$store.dispatch("magazine/getMagazineAuthor");
+    this.myscroll();
+    // this.bScroll = new BScroll(".container-author", {
+    //   // 滚动部分允许点击
+    //   click: true,
+    //   // 允许上拉加载
+    //   pullUpLoad: true,
+    // });
+    // this.bScroll1 = new BScroll(".container-classify", {
+    //   // 滚动部分允许点击
+    //   click: true,
+    //   // 允许上拉加载
+    //   pullUpLoad: true,
+    // });
+    // console.log("scroll");
+    // this.$nextTick(() => {
+    //   this.bScroll.refresh();
+    // });
+    // this.bScroll.finishPullUp();
+    // this.bScroll.refresh();
   },
+  // updated() {
+  //   //重新计算高度
+  //   this.bScroll1.refresh();
+  //   //当数据加载完毕以后通知better-scroll
+  //   this.bScroll1.finishPullUp();
+  // },
   methods: {
+    async myscroll() {
+      await this.$store.dispatch("magazine/getMagazineClassify");
+      await this.$store.dispatch("magazine/getMagazineAuthor");
+      this.$nextTick(() => {
+        this.bScroll = new BScroll(".container-author", {
+          // 滚动部分允许点击
+          click: true,
+          // 允许上拉加载
+          pullUpLoad: true,
+        });
+        this.bScroll1 = new BScroll(".container-classify", {
+          // 滚动部分允许点击
+          click: true,
+          // 允许上拉加载
+          pullUpLoad: true,
+        });
+      });
+    },
     sendIndex(i) {
       this.index = i;
       this.$store.commit("magazine/isactive", this.index);
@@ -98,6 +172,13 @@ export default {
     onChange(index) {
       this.index = index;
       this.$store.commit("magazine/isactive", this.index);
+    },
+
+    getClassify(i) {
+      this.$store.commit("magazine/ifmove");
+      console.log(111);
+      this.$store.commit("magazine/setAuthor", i);
+      this.$store.dispatch("magazine/getAllMagazine", {});
     },
   },
 };
@@ -194,6 +275,20 @@ export default {
         justify-content: space-evenly;
         flex-wrap: wrap;
         padding: 20px 0 17px;
+        .magazine-classify-item {
+          width: 163px;
+          height: 116px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 17px;
+          background-size: 100%;
+          p {
+            font-size: 15px;
+            color: #ffffff;
+            letter-spacing: 1px;
+          }
+        }
       }
     }
     .container-author {

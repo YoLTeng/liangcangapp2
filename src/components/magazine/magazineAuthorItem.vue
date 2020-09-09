@@ -1,12 +1,12 @@
 <!-- 这是杂志的作者分类页面 -->
 <template>
-  <div class="magazine-author-item" @click="getAuthor(item)">
+  <div class="magazine-author-item" @click="getAuthor(item.name)">
     <div class="author-pic">
-      <img :src="imgauthor" alt />
+      <img :src="item.pic" alt />
     </div>
     <div class="author-text">
-      <p class="author-title">{{item}}</p>
-      <p class="author-introduce">生活美学指南</p>
+      <p class="author-title">{{ item.name }}</p>
+      <p class="author-introduce">{{ item.intr }}</p>
     </div>
   </div>
 </template>
@@ -25,7 +25,10 @@ export default {
     getAuthor(i) {
       this.$store.commit("magazine/ifmove");
       console.log(111);
-      this.$store.commit("magazine/setAuthor", this.item);
+      this.$store.commit("magazine/setAuthor", i);
+      this.$store.dispatch("magazine/getAllMagazine", {
+        authorId: this.item.id,
+      });
     },
   },
 };
@@ -38,6 +41,8 @@ export default {
   padding-top: 31px;
   padding-bottom: 11px;
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   background: #efefef;
   border-bottom: 1px solid #cfd2d5;
   &:nth-child(1) {
@@ -53,7 +58,8 @@ export default {
     }
   }
   .author-text {
-    flex: 1;
+    // flex: 1;
+    width: 260px;
     padding-left: 7px;
     padding-top: 9px;
     padding-bottom: 4px;
@@ -65,6 +71,10 @@ export default {
       color: #1f1f1f;
     }
     .author-introduce {
+      // white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       font-size: 15px;
       color: #939393;
     }
